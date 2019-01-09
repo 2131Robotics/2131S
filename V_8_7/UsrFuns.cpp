@@ -82,6 +82,26 @@ void IntakeControl(){//OverRide Control Code
     IntakeSMS(IntakeSetting);
 }
 //
+/*
+if(Controller1.ButtonX.pressing()){
+        PuncherControlEnabled=true;
+        //IntakeSetting=Intake(STOP);
+        PuncherSMS(100);
+    }
+    else if(PuncherControlEnabled){
+        PuncherSMS(0);
+        IntakeTimeEnabled=true;
+        PuncherControlEnabled=false;
+    }
+void PuncherStop(){
+    PuncherMotor.stop();
+}
+void PuncherSMS(int Pct){
+    if(Pct==0)  PuncherStop();
+    else{
+        PuncherMotor.spin(vex::directionType::fwd,Pct,vex::velocityUnits::pct);
+    }
+}*/
 void PuncherChargeControl(){
     if(Controller1.ButtonR1.pressing() && !R1Pressed){
         R1Pressed=true;
@@ -103,14 +123,15 @@ void PuncherChargeControl(){
 }
 void PuncherControl(){
     PuncherChargeControl();
+
 }
 //
 void FliperManualControl(){
-    if(Controller1.ButtonRight.pressing()){
+    if(Controller1.ButtonL2.pressing()){
         FliperManualControlEnabled=true;
         FliperSMS(100);  
     }
-    else if(Controller1.ButtonLeft.pressing()){
+    else if(Controller1.ButtonL1.pressing()){
         FliperManualControlEnabled=true;
         FliperSMS(-100);
     }
@@ -147,9 +168,9 @@ void FliperPosControl(){
     }
 }
 void FliperControl(){
-    //FliperManualControl();
+    FliperManualControl();
     //if(!FliperManualControlEnabled) FliperPosControl();
-    FliperPosControl();
+    //FliperPosControl();
 }
 //
 void DriveHoldControl(){
@@ -185,8 +206,8 @@ void DriveManualControl(){
     LJoy=Controller1.Axis3.value();
     RJoy=Controller1.Axis2.value();
 
-    if(std::abs(LJoy)<5)    LJoy=0;
-    if(std::abs(RJoy)<5)    RJoy=0;
+    if(std::abs(LJoy)<10)    LJoy=0;
+    if(std::abs(RJoy)<10)    RJoy=0;
     
     if(LJoy!=0 || RJoy!=0){
         DriveManualControlEnabled=true;

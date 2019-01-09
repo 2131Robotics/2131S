@@ -89,10 +89,10 @@ int PunPosFromChargedToReleased=100;//the number to add to get form charged to r
 //Fliper
 bool FliperManualControlEnabled=false;
 bool FliperPosControlEnabled=true;
-int FliperPosIn=-50;
+int FliperPosIn=20;
 int FliperPosInPun=-175;
 int FliperPosUpMid=-300;
-int FliperPosDown=-480;
+int FliperPosDown=-600;
 int FliperPosTal=5;
 int FliperRequested=FliperPosIn;
 

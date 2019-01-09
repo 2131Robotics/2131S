@@ -72,12 +72,13 @@ void FliperStop(){
     FlipMotor.stop();
 }
 void FliperSMS(int Pct){
-    if(FlipMotor.rotation(vex::rotationUnits::deg)>FliperPosIn && Pct>0)     Pct=0;//upper limit
-    if(FlipMotor.rotation(vex::rotationUnits::deg)<FliperPosDown && Pct<0)   Pct=0;//lower limit
+    if(FlipMotor.rotation(vex::rotationUnits::deg)<FliperPosDown && Pct<0)     Pct=0;//upper limit
+    else if(FlipMotor.rotation(vex::rotationUnits::deg)>FliperPosIn && Pct>0)   Pct=0;//lower limit
     if(Pct==0)  FliperStop();
     else{
         FlipMotor.spin(vex::directionType::fwd,Pct,vex::velocityUnits::pct);
     }
+   
 }
 /*why
 void FliperSpinTo(int Tar,bool SMS=true,bool Stop=false,bool Rel=false,int Pct=100,int Tal=10){
@@ -98,7 +99,7 @@ void FliperSpinTo(int Tar,bool SMS=true,bool Stop=false,bool Rel=false,int Pct=1
 */
 void FliperCal(){
     FliperCaled=false;
-    int Rpm=100;
+    int Rpm=-100;
     int TimeOut=1000;
     int UpdateMsec=50;
     int CalTimer=0;
