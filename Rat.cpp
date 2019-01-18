@@ -5,12 +5,12 @@ int ComRumerFun(){
 bool PuncherSTS = false;
 bool  PuncherSpinToControlEnabled =false;
 int  PuncherPctSetting = 0;
-int PunPosFromReleasedToCharged = 220;//right before punching
+int PunPosFromReleasedToCharged = 250;//right before punching
 bool XPressed = false;
 bool PuncherCharged = false;
 int PuncherDeg = 0;
 int PuncherSpinToControlRunEnabled = false;
-int PunPosFromChargedToReleased = 120;//right before slip tooth starts
+int PunPosFromChargedToReleased = 110;//right before slip tooth starts
 void PuncherSMSPos(int Pct){
     if(Pct==0){
         PuncherMotor.stop();
