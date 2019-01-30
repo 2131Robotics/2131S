@@ -110,7 +110,7 @@
     }
 /**/
 //------Manual Lift Controll------------//
-    void liftManualCont(){
+ /*   void liftManualCont(){
         IsDriveFippedControll();
     if(DriveDirInverted){
 
@@ -123,7 +123,7 @@
         if(!DriveDirInverted){
             //liftRotateTo(0);
         }
-    }
+    } */
 /**/
 //------Manual Lift Controll------------//
     void LockJawCont(){

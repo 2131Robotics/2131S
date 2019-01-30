@@ -19,17 +19,17 @@
 	bool DriveDirInverted = false;
 
 /*Flipper vars*/
-	bool FlipperMotorConBtnPressed;
-	bool FlipperMotorInverted = false;
+//	bool FlipperMotorConBtnPressed;
+//	bool FlipperMotorInverted = false;
 
 /*Wrist vars*/
-	bool WristMotorConBtnPressed;
+/*	bool WristMotorConBtnPressed;
 	bool WristMotorInverted = false;
 	bool WristCalibrated=false;
 
 	bool WristMotorConBtnTwoPressed;
 	bool WristMotorInvertedTwo = true;
-
+*/
 /*Catapult vars*/
 	bool AutoCatapultEnabled;
 
