@@ -33,6 +33,7 @@
 
 /*Catapult vars*/
 	bool AutoCatapultEnabled;
+	bool posControl = false;
 
 /*Intake vars*/
 	bool AutoIntakeEnabled = false;
@@ -86,6 +87,8 @@ bool yellow = false;
     bool BCaps = false; 
     bool BFlags = false;
     bool pink = false;
+	int selectValue = MainAtonSelect.value(vex::percentUnits::pct);
+    int slots = SecAtonSelect.value(vex::percentUnits::pct);
 /*VEX Brake vars*/
 	vex::brakeType DriveBrakeType=vex::brakeType::coast;
 	vex::brakeType LiftBrakeType=vex::brakeType::brake;
@@ -93,3 +96,8 @@ bool yellow = false;
 	vex::brakeType IntakeBrakeType=vex::brakeType::coast;
 	vex::brakeType LockBrakeType=vex::brakeType::coast;
 	vex::brakeType WristBrakeType=vex::brakeType::brake;
+void debugger()
+{
+	Brain.Screen.print(" debugging ");
+        Brain.Screen.render();
+}

@@ -40,9 +40,12 @@ void AtonFun() {
     //LiftMotor.resetRotation();
     //LockMotor.resetRotation();
 
-    // LockRotateTo(-60);
+    // LockRotateTo(-60)
+    while(SecAtonSelect.value(vex::percentUnits::pct)== 0){}
+    while(MainAtonSelect.value(vex::percentUnits::pct)==0) {}
     Brain.Screen.print("started");
-        Brain.Screen.render();
+    Brain.Screen.render();
+    
     PotSelectors();
     //setDriveBrakeCoast();
 

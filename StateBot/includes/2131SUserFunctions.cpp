@@ -105,7 +105,8 @@
 /**/
 //------Manual Catapult Controll------------//
     void catapultControll(){
-        if(!DriveDirInverted){
+        if(!DriveDirInverted && posControl) CatapultChargeControlPos();
+        if(!DriveDirInverted && !posControl){
             if(Controller1.ButtonR1.pressing()) {
                 setCatapultPower(100);
             }  

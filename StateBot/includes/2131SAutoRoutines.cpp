@@ -189,7 +189,9 @@
 //     //Normal
     void FrontRed()
     {
-        
+        debugger();
+        AtonDriveRamp(1000,65,350);
+        AtonDriveRamp(-900,65,350);
     }
 
 //         void BackRed(){

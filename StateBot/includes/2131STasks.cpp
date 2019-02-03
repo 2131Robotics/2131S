@@ -10,7 +10,7 @@
 
             if (ChargeSenseValue < ChargeMaxValue) Charged = true;
 
-            if (Controller1.ButtonL1.pressing() && !DriveDirInverted) {
+            if (Controller1.ButtonR1.pressing() && !DriveDirInverted) {
 
                 DriveBrakeType = vex::brakeType::hold;
                 setMechDrivePower(0,0,0,0);
