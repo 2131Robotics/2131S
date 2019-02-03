@@ -31,11 +31,11 @@
                 DriveBrakeType = vex::brakeType::coast;
 
                 if(!Charged){
-                    AutoIntakeEnabled = false;
+                    // AutoIntakeEnabled = false;
                     setCatapultPower(100); 
                 }
                 if(Charged){
-                    AutoIntakeEnabled = true;
+                    // AutoIntakeEnabled = true;
                     setCatapultPower(0);
                 }
             }
@@ -66,11 +66,16 @@
             if(AutoIntakeOff){
                 setIntakePower(-5);
                 if(AutoFlip) setIntakePower(-100);
+                //if(AutoMan) setIntakePower(100);
             }
-            else if (BallInBottom && BallInTop) setIntakePower(-5);
-            else setIntakePower(100);
+            /*else if(!Charged){
+                setIntakePower(100);
+            }
+            else if(Charged){*/
+                else if(BallInBottom && BallInTop) setIntakePower(0);
+                else setIntakePower(100);
+            // }
         }
-/**/
 /*Background Tasks*/
     int Drive_Ramping(){
         DriveRampingEnabled=true;
@@ -89,7 +94,7 @@
         // AutoIntakeEnabled = true;
         while(AutoIntakeTaskEnabled){
             if(AutoIntakeEnabled){Auto_Intake();}
-            else if(!AutoIntakeEnabled){setIntakePower(0);}
+            else if(!AutoIntakeEnabled){/*intakeControll();*/}
             vex::task::sleep(20);
         }
         setIntakePower(0);
