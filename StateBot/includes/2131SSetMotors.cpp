@@ -46,7 +46,6 @@
         setMechRFPower(right);
         setMechRBPower(right);
     }
-    
 /**/
 /*Intake Motor Power Sends*/
     void setIntakePower(int power){
@@ -62,37 +61,5 @@
         else{
             CatapultMotor.spin(vex::directionType::fwd,power,vex::velocityUnits::pct);
         }
-    }
-/**/
-/*Lift Motor Power Sends*/
-    void setLiftPower(int power){
-        if(power==0)  LiftMotor.stop(LiftBrakeType);
-        else{
-            LiftMotor.spin(vex::directionType::fwd,power,vex::velocityUnits::pct);
-        }
-    }
-    void liftRotateTo(int pos, int power=100){
-        LiftMotor.startRotateTo(pos,vex::rotationUnits::deg,power,vex::velocityUnits::pct);
-        LiftMotor.setStopping(LiftBrakeType);
-    }
-    void liftRotateFor(int pos, int power=100){
-        LiftMotor.startRotateFor(pos,vex::rotationUnits::deg,power,vex::velocityUnits::pct);
-        LiftMotor.setStopping(LiftBrakeType);
-    }
-/**/
-/*Lock Motor Power Sends*/
-    void setLockPower(int power){
-        if(power==0)  LockMotor.stop(LockBrakeType);
-        else{
-            LockMotor.spin(vex::directionType::fwd,power,vex::velocityUnits::pct);
-        }
-    }
-    void LockRotateTo(int pos, int power=100){
-        LockMotor.startRotateTo(pos,vex::rotationUnits::deg,power,vex::velocityUnits::pct);
-        LockMotor.setStopping(LockBrakeType);
-    }
-    void LockRotateFor(int pos, int power=100){
-        LockMotor.startRotateFor(pos,vex::rotationUnits::deg,power,vex::velocityUnits::pct);
-        LockMotor.setStopping(LockBrakeType);
     }
 /**/
