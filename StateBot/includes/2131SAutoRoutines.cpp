@@ -189,9 +189,15 @@
 //     //Normal
     void FrontRed()
     {
-        debugger();
-        AtonDriveRamp(1000,65,350);
-        AtonDriveRamp(-900,65,350);
+        AutoIntakeEnabled = true;
+        AutoIntakeOff = false;
+        wait(350);
+        AtonDriveRamp(1050,65,350);
+        //AtonDriveRamp(-10,65,350);
+        //AtonSlide(-100);
+        AtonTurn(-15);
+
+        //fire();
     }
 
 //         void BackRed(){

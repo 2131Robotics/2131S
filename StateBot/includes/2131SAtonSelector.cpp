@@ -83,8 +83,7 @@ void PotSelectors()
 {
     
     AutoSense();
-    Brain.Screen.print(slots);
-    Brain.Screen.render();
+    
     if(yellow==true)
     {
         Brain.Screen.print(" yellow");

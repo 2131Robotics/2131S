@@ -113,4 +113,10 @@
             else CatapultMotor.stop(CatapultBrakeType);
         }
     }
+    void fire()
+    {
+        setCatapultPower(100);
+        wait(2000);
+        setCatapultPower(0);
+    }
 /**/

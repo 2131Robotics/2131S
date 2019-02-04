@@ -32,7 +32,7 @@ void PreAutonFun() {
 void AtonFun() {
     
     //vex::task AutoCat(AutoCatapult);
-    //vex::task AutoIn(Auto_Intaking);
+    vex::task AutoIn(Auto_Intaking);
     // vex::task Debug(BrainScreenDebug);
 
     vex::task AtonDrive(Drive_Ramping);
