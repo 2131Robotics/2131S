@@ -2,62 +2,62 @@ int ComRumerFun(){
     Controller1.rumble(".");
     return 1;
 }
-bool CatapultSTS = false;
-bool  CatapultSpinToControlEnabled =false;
-int  CatapultPctSetting = 0;
-int CatapultPosFromReleasedToCharged = 400;//right before Catapulting
-bool R1Pressed = false;
-bool CatapultCharged = false;
-int CatapultDeg = 0;
-int CatapultSpinToControlRunEnabled = false;
-int CatapultPosFromChargedToReleased = 110;//right before slip tooth starts
-void CatapultSMSPos(int Pct){
+bool PuncherSTS = false;
+bool  PuncherSpinToControlEnabled =false;
+int  PuncherPctSetting = 0;
+int PunPosFromReleasedToCharged = 250;//right before punching
+bool XPressed = false;
+bool PuncherCharged = false;
+int PuncherDeg = 0;
+int PuncherSpinToControlRunEnabled = false;
+int PunPosFromChargedToReleased = 110;//right before slip tooth starts
+void PuncherSMSPos(int Pct){
     if(Pct==0){
-        CatapultMotor.stop();
-        CatapultSTS=false;
+        PuncherMotor.stop();
+        PuncherSTS=false;
     }
     else{
-        CatapultSTS=true;
-        CatapultMotor.spin(vex::directionType::fwd,Pct,vex::velocityUnits::pct);
+        PuncherSTS=true;
+        PuncherMotor.spin(vex::directionType::fwd,Pct,vex::velocityUnits::pct);
     }
 }
 
 
-void CatapultSpinTo(int Tar,bool SMS=true,bool Stop=true,bool Rel=false,int Pct=100,int Tal=10){
-    if(Rel) Tar+=CatapultMotor.rotation(vex::rotationUnits::deg);
-    // int Dir=SGN(Tar-CatapultMotor.rotation(vex::rotationUnits::deg));//only use if it can go both dir's
+void PuncherSpinTo(int Tar,bool SMS=true,bool Stop=true,bool Rel=false,int Pct=100,int Tal=10){
+    if(Rel) Tar+=PuncherMotor.rotation(vex::rotationUnits::deg);
+    // int Dir=SGN(Tar-PuncherMotor.rotation(vex::rotationUnits::deg));//only use if it can go both dir's
     int Dir=1;
-    if(std::abs(CatapultMotor.rotation(vex::rotationUnits::deg)-Tar)>Tal && CatapultSpinToControlRunEnabled){//outside of tal
-        CatapultSpinToControlEnabled=true;
-        //Dir=SGN(Tar-CatapultMotor.rotation(vex::rotationUnits::deg));//only use if it can go both dir's
-        CatapultPctSetting=Pct*Dir;//set the motor to spin in the correct direction
+    if(std::abs(PuncherMotor.rotation(vex::rotationUnits::deg)-Tar)>Tal && PuncherSpinToControlRunEnabled){//outside of tal
+        PuncherSpinToControlEnabled=true;
+        //Dir=SGN(Tar-PuncherMotor.rotation(vex::rotationUnits::deg));//only use if it can go both dir's
+        PuncherPctSetting=Pct*Dir;//set the motor to spin in the correct direction
     }
-    else if(CatapultSpinToControlEnabled){//if in tar zone and was enabled; fist not enabled
-        CatapultPctSetting=0;
-        CatapultSpinToControlEnabled=false;//toggle
-        if(Stop)    CatapultSpinToControlRunEnabled=false;//stop after it has been hit
+    else if(PuncherSpinToControlEnabled){//if in tar zone and was enabled; fist not enabled
+        PuncherPctSetting=0;
+        PuncherSpinToControlEnabled=false;//toggle
+        if(Stop)    PuncherSpinToControlRunEnabled=false;//stop after it has been hit
     }
-    if(SMS) CatapultSMSPos(CatapultPctSetting);
+    if(SMS) PuncherSMSPos(PuncherPctSetting);
 }
-void CatapultChargeControlPos(){
-    if(Controller1.ButtonR1.pressing() && !R1Pressed){
-        R1Pressed=true;
+void PuncherChargeControlPos(){
+    if(Controller1.ButtonX.pressing() && !XPressed){
+        XPressed=true;
         vex::task CompRumerTask(ComRumerFun);
-        if(!CatapultCharged){
-            CatapultDeg+=CatapultPosFromReleasedToCharged;
-            CatapultSpinToControlRunEnabled=true;//enable Catapultspinto
-            CatapultCharged=true;
+        if(!PuncherCharged){
+            PuncherDeg+=PunPosFromReleasedToCharged;
+            PuncherSpinToControlRunEnabled=true;//enable puncherspinto
+            PuncherCharged=true;
         }
-        else if(CatapultCharged){//if charged && the CatapultPos is not spining
-            CatapultDeg+=CatapultPosFromChargedToReleased;
-            CatapultSpinToControlRunEnabled=true;//enable Catapultspinto
-            CatapultCharged=false;
+        else if(PuncherCharged){//if charged && the puncherPos is not spining
+            PuncherDeg+=PunPosFromChargedToReleased;
+            PuncherSpinToControlRunEnabled=true;//enable puncherspinto
+            PuncherCharged=false;
         }
     }
-    else if(!Controller1.ButtonR1.pressing() && R1Pressed)  R1Pressed=false;
+    else if(!Controller1.ButtonX.pressing() && XPressed)  XPressed=false;
 
-    CatapultSpinTo(CatapultDeg,true);//spin motor to CatapultDeg && set motor to spin
+    PuncherSpinTo(PuncherDeg,true);//spin motor to puncherDeg && set motor to spin
 }
-void CatapultControlPos(){
-    CatapultChargeControlPos();
+void PuncherControlPos(){
+    PuncherChargeControlPos();
 }
