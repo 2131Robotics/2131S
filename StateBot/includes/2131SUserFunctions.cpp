@@ -20,8 +20,8 @@
         int LeftHorJoy=Controller1.Axis4.value();
         int RightHorJoy=Controller1.Axis1.value();
 
-        if(std::abs(LeftVirtJoy)<10)    LeftVirtJoy=0;
-        if(std::abs(RightVirtJoy)<10)    RightVirtJoy=0;
+        if(std::abs(LeftVirtJoy)<5)    LeftVirtJoy=0;
+        if(std::abs(RightVirtJoy)<5)    RightVirtJoy=0;
         if(std::abs(LeftHorJoy)<15)  LeftHorJoy=0;
         if(std::abs(RightHorJoy)<15)  RightHorJoy=0;
         
@@ -40,15 +40,15 @@
     }
         void PlaceCap(){
             vex::task AtonDrive(Drive_Ramping);
-                AtonDriveRamp(40,60);
-                vex::task::sleep(100);
-                // liftRotateFor(-600,50);
-                vex::task::sleep(300);
+            // while(Controller1.Axis3.value()==0 || Controller1.Axis2.value()==0){
+                liftRotateFor(-350,50);
+                AtonDriveRamp(10,50);
+                wait(500);
                 DriveRampingEnabled = false;
+            // }
         }
 
     void DriveCont_LockContM(){
-        IsDriveFippedControll();
         if(Controller1.ButtonB.pressing() && DriveLockConBtnPressed==false){
             DriveLockConBtnPressed=true;
             DriveLockInverted=!DriveLockInverted;
@@ -62,20 +62,18 @@
             DriveBrakeType = vex::brakeType::coast;
             ManualMechDriveCont();
         }
-        if(Controller1.ButtonDown.pressing()){ //place cap
-            if(DriveDirInverted){
-            setDrivePower(30,30);
-            }
+        if(Controller1.ButtonDown.pressing()){
+            PlaceCap();
         }
     }
 /**/
 //------Manual Intake Controll------------//
     void intakeControll(){
         if(!DriveDirInverted){
-            if(Controller1.ButtonL1.pressing()) {
+            if(Controller1.ButtonR1.pressing()) {
                 setIntakePower(100);
             }   
-            else if(Controller1.ButtonL2.pressing()) {
+            else if(Controller1.ButtonR2.pressing()) {
                 setIntakePower(-100);
             }   
             else IntakeMotor.stop(vex::brakeType::coast);
@@ -93,30 +91,56 @@
         }
 
         if(IntakeEnabledInverted){ 
-            AutoIntakeTaskEnabled=false;
+            AutoIntakeEnabled=false;
             intakeControll();
         }
         if(!IntakeEnabledInverted) {
-            vex::task AutoIn(Auto_Intaking);
-            //AutoIntakeEnabled=false;
-
+            AutoIntakeEnabled=true;
         }
     }
 /**/
 //------Manual Catapult Controll------------//
     void catapultControll(){
-        if(!DriveDirInverted && posControl) CatapultChargeControlPos();
-        if(!DriveDirInverted && !posControl){
-            if(Controller1.ButtonR1.pressing()) {
+        if(!DriveDirInverted){
+            if(Controller1.ButtonL1.pressing()) {
                 setCatapultPower(100);
             }  
-            else CatapultMotor.stop(CatapultBrakeType);
+            else CatapultMotor.stop(vex::brakeType::coast);
         }
     }
-    void fire()
-    {
-        setCatapultPower(100);
-        wait(2000);
-        setCatapultPower(0);
+/**/
+//------Manual Lift Controll------------//
+ /*   void liftManualCont(){
+        IsDriveFippedControll();
+    if(DriveDirInverted){
+
+            IntakeMotor.stop(IntakeBrakeType);
+
+            if(Controller1.ButtonL1.pressing()) setLiftPower(100);
+            else if(Controller1.ButtonL2.pressing()) setLiftPower(-100);
+            else setLiftPower(0);
+        }
+        if(!DriveDirInverted){
+            //liftRotateTo(0);
+        }
+    } */
+/**/
+//------Manual Lift Controll------------//
+    void LockJawCont(){
+        IsDriveFippedControll();
+        // double LockPos = LockMotor.rotation(vex::rotationUnits::deg);
+    if(DriveDirInverted){
+
+            if(Controller1.ButtonR1.pressing()) setLockPower(100);
+            else if(Controller1.ButtonR2.pressing()) setLockPower(-100);
+            else setLockPower(0);
+
+            // if(LockPos <= 0) setLockPower(0);
+            // if(LockPos >=387) setLockPower(0);
+
+        }
+        if(!DriveDirInverted){
+            
+        }
     }
 /**/

@@ -19,32 +19,32 @@
 	bool DriveDirInverted = false;
 
 /*Flipper vars*/
-	bool FlipperMotorConBtnPressed;
-	bool FlipperMotorInverted = false;
+//	bool FlipperMotorConBtnPressed;
+//	bool FlipperMotorInverted = false;
 
 /*Wrist vars*/
-	bool WristTaskEnabled;
-	bool WristMotorConBtnPressed;
+/*	bool WristMotorConBtnPressed;
 	bool WristMotorInverted = false;
 	bool WristCalibrated=false;
-	bool wristRan=true;
-	//bool WristMotorConBtnTwoPressed;
-	//bool WristMotorInvertedTwo = true;
 
+	bool WristMotorConBtnTwoPressed;
+	bool WristMotorInvertedTwo = true;
+*/
 /*Catapult vars*/
 	bool AutoCatapultEnabled;
-	bool posControl = false;
 
 /*Intake vars*/
 	bool AutoIntakeEnabled = false;
 	bool AutoIntakeTaskEnabled = false;
 	bool AutoIntakeOff = false;
-	bool AutoFlip=false;
-	// bool AutoMan=false;
-	
+
 	bool IntakeEnabledBtnPressed;
 	bool IntakeEnabledInverted = true;
 	bool UserAutoIntakeMode = false;
+	bool AutoFlip = false;
+
+/*Index vars*/
+	bool AutoIndexFiring = false;
 
 /*Puncher vars*/
 	bool AutoPuncherFiring = false;
@@ -60,8 +60,6 @@
 	int liftMode = 1;
 	int PIDliftUserCpower = 100;
 	bool liftDeployed = false;
-	//bool easyFlipDir = false;
-	bool LiftEEnabledBtnPressed;
 
 /*Lock vars*/
 	bool jawButtonWait;
@@ -79,25 +77,10 @@
 
 	int UP = 90;
 	int DOWN = 30;
-bool yellow = false;
-    bool green = false;
-    bool white = false;
-    bool RFlags = false;
-    bool RCaps = false;
-    bool BCaps = false; 
-    bool BFlags = false;
-    bool pink = false;
-	int selectValue = MainAtonSelect.value(vex::percentUnits::pct);
-    int slots = SecAtonSelect.value(vex::percentUnits::pct);
+
 /*VEX Brake vars*/
 	vex::brakeType DriveBrakeType=vex::brakeType::coast;
 	vex::brakeType LiftBrakeType=vex::brakeType::brake;
 	vex::brakeType CatapultBrakeType=vex::brakeType::coast;
 	vex::brakeType IntakeBrakeType=vex::brakeType::coast;
 	vex::brakeType LockBrakeType=vex::brakeType::coast;
-	vex::brakeType WristBrakeType=vex::brakeType::brake;
-void debugger()
-{
-	Brain.Screen.print(" debugging ");
-        Brain.Screen.render();
-}
