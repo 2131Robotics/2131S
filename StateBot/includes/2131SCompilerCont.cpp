@@ -3,8 +3,8 @@
 /*---------------------------------------------------------------------------*/
 void PreAutonFun() {
     Brain.Screen.render(true,false);
-    vex::task SmartPot(WhatAton);
-
+    // vex::task SmartPot(WhatAton);
+    AutoIntakeEnabled = false;
         //wait for vex to not be a dumb
     while(MainAtonSelect.value(vex::percentUnits::pct)==0 && SecAtonSelect.value(vex::percentUnits::pct)==0){}
     LeftFMotor.setStopping(vex::brakeType::coast);
@@ -30,17 +30,21 @@ void PreAutonFun() {
 /*---------------------------------------------------------------------------*/
 
 void AtonFun() {
-    vex::task AutoCat(AutoCatapult);
+    
+    //vex::task AutoCat(AutoCatapult);
     vex::task AutoIn(Auto_Intaking);
-    vex::task Debug(BrainScreenDebug);
-    // AutoIntakeEnabled = false;
+    // vex::task Debug(BrainScreenDebug);
 
     vex::task AtonDrive(Drive_Ramping);
 
-    LiftMotor.resetRotation();
-    LockMotor.resetRotation();
+    //LiftMotor.resetRotation();
+    //LockMotor.resetRotation();
 
-    // LockRotateTo(-60);
+    // LockRotateTo(-60)
+    while(SecAtonSelect.value(vex::percentUnits::pct)== 0){}
+    while(MainAtonSelect.value(vex::percentUnits::pct)==0) {}
+    Brain.Screen.print("started");
+    Brain.Screen.render();
     
     PotSelectors();
     //setDriveBrakeCoast();
@@ -52,9 +56,9 @@ void AtonFun() {
 /*---------------------------------------------------------------------------*/
 
 void UserContFun() {
-
-    vex::task AutoCat(AutoCatapult);
-    vex::task AutoIn(Auto_Intaking);
+    while(ChargeLightSensor.value(vex::percentUnits::pct)==0){}
+    //vex::task AutoCat(AutoCatapult);
+    //vex::task AutoIn(Auto_Intaking);
 
     // AutoIntakeEnabled = false;
     DriveRampingEnabled=false;
@@ -65,10 +69,8 @@ void UserContFun() {
     while (true) {
         DriveCont_LockContM();
         AutoIntakeCont();
-        //intakeControll();
-        liftManualCont();
-        LockJawCont();
-        //catapultControll();
+        catapultControll();
+        intakeControll();
 
         vex::task::sleep(20); //Sleep the task for a short amount of time to prevent wasted resources. 
     }
