@@ -100,9 +100,25 @@
     }
 /**/
 //------Manual Catapult Controll------------//
+void isCatapultswitched(){
+        if(Controller1.ButtonR2.pressing() && switchingCatapults==false){
+            switchingCatapults=true;
+            posControl=!posControl;
+        }
+        if(!Controller1.ButtonR2.pressing() && switchingCatapults==true){
+            switchingCatapults=false;
+        }
+    }
     void catapultControll(){
+<<<<<<< HEAD
+        isCatapultswitched();
+        if(!DriveDirInverted && posControl) catapultChargeFire();
+        if(!DriveDirInverted && !posControl){
+            if(Controller1.ButtonR1.pressing()) {
+=======
         if(!DriveDirInverted){
             if(Controller1.ButtonL1.pressing()) {
+>>>>>>> e73abc0a58f4a554f7f297a46d7698daea578a26
                 setCatapultPower(100);
             }  
             else CatapultMotor.stop(vex::brakeType::coast);

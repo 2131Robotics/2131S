@@ -2,7 +2,7 @@
     //---------------------Auto Catapult-----------------------//
         bool Charged=false;
         int ChargeSenseValue;
-        int ChargeMaxValue = 30;
+        int ChargeMaxValue = 65;
         bool AutoCataFiring=true;
 
         void catapultChargeFire(){

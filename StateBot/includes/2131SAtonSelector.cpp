@@ -54,6 +54,50 @@
             else if(secSelectValue >= 0) Brain.Screen.print("FrontBlue - Normal");
         }
         
+<<<<<<< HEAD
+//     }
+//     int WhatAton(){
+//         while(true){
+//             AtonUpdator();
+//             Brain.Screen.render();
+//             vex::task::sleep(20);
+//         }
+//         return 1;
+//     }
+// /**/
+// //-----------Pot Selector Values Function------------//
+void AutoSense()
+{
+    int selectValue = MainAtonSelect.value(vex::percentUnits::pct);
+    int slots = SecAtonSelect.value(vex::percentUnits::pct);
+    if(slots >  70)         white = true;
+    else if(slots > 47)     pink = true;
+    else if(slots > 30)     green = true;
+    else if(slots >=0)      yellow = true;
+    if(selectValue > 70)    RFlags = true;
+    else if(selectValue > 40)   RCaps = true;
+    else if (selectValue > 25)  BCaps = true;
+    else if(selectValue >= 0)    BFlags = true;
+    
+}
+void PotSelectors()
+{
+    
+    AutoSense();
+    Brain.Screen.print(slots);
+    Brain.Screen.print(",");
+    Brain.Screen.print(selectValue);
+    Brain.Screen.render();
+    if(yellow==true)
+    {
+        Brain.Screen.print(" yellow");
+        Brain.Screen.render();
+        if (RFlags) FrontRed();
+        else if(RCaps) {}
+        else if (BCaps) {}
+        else if (BFlags) FrontBlue();
+=======
+>>>>>>> e73abc0a58f4a554f7f297a46d7698daea578a26
     }
     int WhatAton(){
         while(true){
