@@ -32,11 +32,8 @@
 */
 /*Catapult vars*/
 	bool AutoCatapultEnabled;
-<<<<<<< HEAD
 	bool posControl = false;
 	bool switchingCatapults = false;
-=======
->>>>>>> e73abc0a58f4a554f7f297a46d7698daea578a26
 
 /*Intake vars*/
 	bool AutoIntakeEnabled = false;
