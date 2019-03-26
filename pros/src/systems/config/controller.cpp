@@ -24,6 +24,6 @@ namespace Flipper{
   okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::right];
 }
 namespace Catapult{
-  okapi::ControllerButton ChrgeBtn = master_controller[okapi::ControllerDigital::A];
+  okapi::ControllerButton ChrgeBtn = master_controller[okapi::ControllerDigital::X];
 
 }
