@@ -92,7 +92,7 @@ namespace Catapult{
       OnOffCon::set_targetRel(OnOffCon::ChargedToReleased);
       OnOffCon::set_run(true);
       set_charged(false);
-      Intake::Auto::Balls::set_puncher(false);
+      // Intake::Auto::Balls::set_puncher(false);
     }
   }
   void execute(){
@@ -112,12 +112,12 @@ namespace Catapult{
     void charge(){
       if(BtnCharge.changed()){
         if(BtnCharge.isPressed()){//inti
-          Intake::Auto::enable();
+          // Intake::Auto::enable();
           Drive::set_brakeMode(okapi::Motor::brakeMode::hold);
           // Changer();
         }
         else{//deInit
-          set_doubleShot(false);
+          // set_doubleShot(false);
           Drive::set_brakeMode(okapi::Motor::brakeMode::coast);
           // Lift::set_target(Lift::Down,Lift::VDown);
         }
@@ -130,6 +130,7 @@ namespace Catapult{
       }
     }
   }
+}
 /*  namespace Auton{
     void wait(int w){
       while(OnOffCon::get_run()){//wait for the motor to hit its target pos

@@ -6,7 +6,12 @@
 #define FRONT_RIGHT_MOTOR 1
 #define BACK_LEFT_MOTOR 20
 #define BACK_RIGHT_MOTOR 10
-#define INTAKE_PORT 12
+#define INTAKE_MOTOR 12
+#define CATAPULT_MOTOR 13
+#define LIFT_MOTOR 10
+#define FLIPPER_MOTOR 19
+
+
 namespace Drive{
   extern okapi::Motor front_left_motor;
   extern okapi::Motor front_right_motor;

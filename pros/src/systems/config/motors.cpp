@@ -16,7 +16,7 @@ namespace Flipper{
 // okapi::Motor motor(20,false,okapi::AbstractMotor::gearset::red,okapi::AbstractMotor::encoderUnits::degrees);
 // }
 namespace Lift{
-  okapi::Motor lift_mtr(13,false,okapi::AbstractMotor::gearset::red,okapi::AbstractMotor::encoderUnits::degrees);
+  okapi::Motor lift_mtr(9,false,okapi::AbstractMotor::gearset::red,okapi::AbstractMotor::encoderUnits::degrees);
 }
 namespace Catapult{
   okapi::Motor lift_mtr(13,false,okapi::AbstractMotor::gearset::red,okapi::AbstractMotor::encoderUnits::degrees);
