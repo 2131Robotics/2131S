@@ -3,8 +3,9 @@
 #include "systems/drive.hpp"
 #include "systems/intake.hpp"
 #include "systems/lift.hpp"
+#include "systems/config/motors.hpp"
+#include "systems/config/controller.hpp"
 namespace Catapult{
-  // pros::Mutex DoubleShotTaskMutex();
 
   //vars
   Controllers Controller=Controllers::NONE;
