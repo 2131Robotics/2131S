@@ -25,3 +25,7 @@ bool FlipperMotorInverted = false;
 
 /*Catapult vars*/
 bool AutoCatapultEnabled = true;
+
+/* intake vars */
+bool AutoIntakeEnabled = false;
+	bool AutoIntakeTaskEnabled = false;
