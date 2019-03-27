@@ -2,6 +2,8 @@
 #include "systems/config/motors.hpp"
 #include "systems/config/controller.hpp"
 namespace Intake{
+bool ball1in = false;
+bool ball2in = false;
 
   void manualintake()     {
 

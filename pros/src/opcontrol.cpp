@@ -23,7 +23,7 @@
 
 void opcontrol() {
 	using namespace okapi::literals;
-	pros::lcd::set_text(1, "XD");
+	pros::lcd::set_text(1, "start");
 
 
 	while (true) {
