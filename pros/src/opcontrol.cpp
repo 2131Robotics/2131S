@@ -30,7 +30,8 @@ void opcontrol() {
 		Drive::DriveCont_LockContM();
 		Flipper::flipper();
 		Lift::lift();
-		Intake::intake();
+		Intake::manualintake();
+		Intake::autointake();
 		Catapult::catapultmanual();
 		Fishy::fishy();
 

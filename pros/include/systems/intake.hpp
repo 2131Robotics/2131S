@@ -3,7 +3,8 @@
 
 namespace Intake {
 
-void intake();
+void manualintake();
+void autointake();
   }
 
 #endif

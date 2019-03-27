@@ -3,7 +3,7 @@
 #include "systems/config/controller.hpp"
 namespace Intake{
 
-  void intake()     {
+  void manualintake()     {
 
     if (BtnIn.isPressed()) {
       motor.move_velocity(300);
@@ -17,6 +17,11 @@ namespace Intake{
     }
 
   }
+  void autointake(){
 
+
+
+
+  }
 
 }

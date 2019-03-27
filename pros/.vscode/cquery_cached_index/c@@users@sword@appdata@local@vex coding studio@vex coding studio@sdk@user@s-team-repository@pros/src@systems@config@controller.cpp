@@ -7,7 +7,8 @@ namespace Flow{
   okapi::ControllerButton BtnToCaps = master_controller[okapi::ControllerDigital::L1];
 }
 namespace Drive{
-  okapi::ControllerButton BtnBrake = master_controller[okapi::ControllerDigital::L2];
+  okapi::ControllerButton HoldToggle = master_controller[okapi::ControllerDigital::B];
+  okapi::ControllerButton DriveToggle = master_controller[okapi::ControllerDigital::Y];
 }
 namespace Intake{
   // okapi::ControllerButton BtnCombo = master_controller[okapi::ControllerDigital::R2];
