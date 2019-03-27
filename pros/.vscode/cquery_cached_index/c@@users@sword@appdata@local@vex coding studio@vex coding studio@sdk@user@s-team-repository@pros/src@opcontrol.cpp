@@ -34,7 +34,7 @@ void opcontrol() {
 		Intake::manualintake();
 		// Intake::autointake();
 		Catapult::catapultmanual();
-		Fishy::fishy();
+		// Fishy::fishy();
 
 	}
 }
