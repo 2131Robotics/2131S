@@ -3,17 +3,8 @@
 #include "okapi/api.hpp"
 #include "systems/config/motors.hpp"
 namespace Drive{
-  //vars
-  enum class Controllers{MANUAL,NONE};
-  //vars FUNCTIONS
-  // bool get_invert();
-  void set_inverted(bool i);
-  void set_brakeMode(okapi::Motor::brakeMode b);
-  //methods
-  void execute();
-  namespace Control{
-    void manual();
-    void hold();
-  }
+
+ void drivecontrol (int j3, int j2, int j1, int j4);
+
 }
 #endif

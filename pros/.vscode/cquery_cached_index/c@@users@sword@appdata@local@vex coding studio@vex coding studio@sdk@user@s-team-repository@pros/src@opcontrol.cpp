@@ -27,6 +27,8 @@ void opcontrol() {
 
 
 	while (true) {
+		Drive::mechamdrive();
+		Drive::drivecontrol();
 		Flipper::flipper();
 		Lift::lift();
 		Intake::intake();
