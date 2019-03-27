@@ -1,34 +1,34 @@
 #include "main.h"
 namespace Drive{
 
-void mechamdrive (int V1 =0, int V2 =0, int V3 =0, int V4=0){
-  front_left_motor.move_velocity(V1);
-  back_left_motor.move_velocity(V2);
-  front_right_motor.move_velocity(V3);
-  back_right_motor.move_velocity(V4);
+  void mechamdrive (int V1 =0, int V2 =0, int V3 =0, int V4=0){
+    front_left_motor.move_velocity(V1);
+    back_left_motor.move_velocity(V2);
+    front_right_motor.move_velocity(V3);
+    back_right_motor.move_velocity(V4);
 
-}
+  }
+  
+  void drivecontrol (int j3, int j2, int j1, int j4){
+    int Left = j3;
+    int Right = j2;
+    int Side = (j1+j4)/2; //average
 
-void drivecontrol (int j3, int j2, int j1, int j4){
-  int Left = j3;
-  int Right = j2;
-  int Side = (j1+j4)/2; //average
+    if(std::abs(j1)>std::abs(j4))
+    {
+      Side = j1;
+    }
 
-if(std::abs(j1)>std::abs(j4))
-{
-		Side = j1;
-}
+    else
+    {
+      Side = j4;
+    }
 
-else
-{
-		Side = j4;
-}
+    mechamdrive(
+      Left+Side,
+      Left-Side,
+      Right-Side,
+      Right+Side);
 
-mechamdrive(
-		Left+Side,
-		Left-Side,
-		Right-Side,
-		Right+Side);
-
-}
-}
+    }
+  }

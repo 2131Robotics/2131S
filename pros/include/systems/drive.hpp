@@ -4,7 +4,7 @@
 #include "systems/config/motors.hpp"
 namespace Drive{
 
- void drivecontrol (int j3, int j2, int j1, int j4);
+  void drivecontrol (int j3, int j2, int j1, int j4);
 
 }
 #endif

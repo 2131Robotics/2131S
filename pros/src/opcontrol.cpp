@@ -32,6 +32,6 @@ void opcontrol() {
 		Lift::lift();
 		Intake::intake();
 		Catapult::catapultmanual();
-		
+
 	}
 }
