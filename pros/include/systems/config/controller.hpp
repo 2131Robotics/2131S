@@ -10,6 +10,8 @@ namespace Flow{
 }
 namespace Drive{
   extern okapi::ControllerButton BtnBrake;
+  extern okapi::ControllerButton HoldToggle;
+  extern okapi::ControllerButton DriveToggle;
 }
 namespace Intake{
   extern okapi::ControllerButton BtnCombo;

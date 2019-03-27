@@ -16,8 +16,8 @@ namespace Intake{
   // okapi::ControllerButton BtnTog = master_controller[okapi::ControllerDigital::A];
 }
 namespace Lift{
-  okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::R1];
-  okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::R2];
+  okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::L1];
+  okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::L2];
 }
 namespace Flipper{
   okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::left];

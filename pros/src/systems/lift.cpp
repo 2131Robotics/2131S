@@ -9,18 +9,19 @@ namespace Lift{
     {
 
       if (BtnUp.isPressed()) {
-        motor.moveVelocity(100);
+        motor.moveVelocity(200);
       }
       else if (BtnDown.isPressed()) {
-        motor.moveVelocity(-100);
+        motor.moveVelocity(-200);
 
       }
       else{
         motor.moveVelocity(0);
+        motor.setBrakeMode(okapi::AbstractMotor::brakeMode::hold);
       }
 
     }
 
-    
+
   }
 }

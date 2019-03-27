@@ -3,8 +3,13 @@
 #include "okapi/api.hpp"
 #include "systems/config/motors.hpp"
 namespace Drive{
+  void IsDriveFippedControll();
+  void MechDriveLock();
+  void MechDriveRelease();
+  void ManualMechDriveCont();
+  void DriveCont_LockContM();
 
-  void drivecontrol (int j3, int j2, int j1, int j4);
-
+  void Drive_Ramping(void*DriveRampingTask);
 }
+
 #endif

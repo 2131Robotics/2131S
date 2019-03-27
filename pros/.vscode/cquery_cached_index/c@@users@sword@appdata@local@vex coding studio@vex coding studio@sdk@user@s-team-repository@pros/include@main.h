@@ -50,6 +50,7 @@
 #include "systems/intake.hpp"
 #include "systems/config/flipper.hpp"
 #include "systems/lift.hpp"
+#include "systems/config/vars.hpp"
 
 
 /**

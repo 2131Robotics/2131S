@@ -8,7 +8,7 @@
 namespace Catapult{
   void catapultmanual(){
     if (ChrgeBtn.isPressed()) {
-      motor.moveVelocity(100);
+      motor.moveVelocity(-100);
     }
 
     else{

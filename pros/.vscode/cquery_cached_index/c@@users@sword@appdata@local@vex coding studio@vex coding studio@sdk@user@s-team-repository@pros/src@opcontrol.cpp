@@ -27,11 +27,12 @@ void opcontrol() {
 
 
 	while (true) {
-
+		Drive::DriveCont_LockContM();
 		Flipper::flipper();
 		Lift::lift();
 		Intake::intake();
 		Catapult::catapultmanual();
+		Fishy::fishy();
 
 	}
 }
