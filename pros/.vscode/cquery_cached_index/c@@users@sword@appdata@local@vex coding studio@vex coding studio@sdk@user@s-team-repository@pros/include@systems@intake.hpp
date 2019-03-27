@@ -13,7 +13,7 @@ extern bool IntakeFlip;
 
 void Auto_Intaking(void*AutoIntaking);
 void manualintake();
-void autointake();
+// void autointake();
   }
 
 #endif
