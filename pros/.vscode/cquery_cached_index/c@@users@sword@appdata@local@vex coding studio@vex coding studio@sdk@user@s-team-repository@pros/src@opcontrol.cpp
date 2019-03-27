@@ -3,6 +3,8 @@
 #include "systems/intake.hpp"
 #include "systems/lift.hpp"
 #include "systems/config/flipper.hpp"
+#include "systems/catapult.hpp"
+#include "systems/config/important/fish_weee.hpp"
 /**
 * Runs the operator control code. This function will be started in its own task
 * with the default priority and stack size whenever the robot is enabled via
@@ -25,7 +27,11 @@ void opcontrol() {
 
 
 	while (true) {
+		Flipper::flipper();
+		Lift::lift();
+		Intake::intake();
+		Catapult::catapultmanual();
+		Fishy::fishy();
 
-	
 	}
 }
