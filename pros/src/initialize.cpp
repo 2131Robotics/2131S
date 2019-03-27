@@ -4,7 +4,7 @@ void on_center_button() {
 	static bool pressed = false;
 	pressed = !pressed;
 	if (pressed) {
-		pros::lcd::set_text(2, "<3!");
+		pros::lcd::set_text(2, "}(>')!");
 	} else {
 		pros::lcd::clear_line(2);
 	}
@@ -18,7 +18,7 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "well it started i guess!");
+	pros::lcd::set_text(1, "f");
 
 	pros::lcd::register_btn1_cb(on_center_button);
 }
