@@ -23,17 +23,16 @@ namespace Drive{
 
 
 namespace Lift{
-  // extern okapi::Motor motor0;
-  // extern okapi::Motor motor1;
-  extern okapi::MotorGroup motor;
+
+  extern okapi::Motor motor;
 }
 namespace Flipper{
-  extern okapi::MotorGroup motor;
+  extern okapi::Motor motor;
 
 
 }
 namespace Catapult{
-extern okapi::MotorGroup motor;
+extern okapi::Motor motor;
 
 
 }
