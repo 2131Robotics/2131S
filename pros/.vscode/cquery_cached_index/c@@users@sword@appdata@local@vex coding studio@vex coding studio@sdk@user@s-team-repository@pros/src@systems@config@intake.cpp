@@ -17,7 +17,7 @@ namespace Intake{
     }
 
   }
-
+/*
       int	BottomLightValue;
       int TopLightValue;
       int BottomBallInMax = 2500;
@@ -50,5 +50,5 @@ namespace Intake{
           else setIntakeVel(600);
         }
         setIntakeVel(0);
-      }
+      } */
     }

@@ -22,6 +22,7 @@
 
 
 void opcontrol() {
+	MechDriveRampingEnabled=false;
 	using namespace okapi::literals;
 	pros::lcd::set_text(1, "start");
 
