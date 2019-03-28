@@ -30,6 +30,7 @@ void opcontrol() {
 
 	while (true) {
 		Drive::DriveCont_LockContM();
+		Drive::IsDriveFippedControll();
 		Flipper::flipper();
 		Lift::lift();
 		Intake::manualintake();

@@ -6,10 +6,10 @@ namespace Intake{
   void manualintake()     {
 
     if (BtnIn.isPressed()) {
-      motor.move_velocity(300);
+      motor.move_velocity(600);
     }
     else if (BtnOut.isPressed()) {
-      motor.move_velocity(-300);
+      motor.move_velocity(-600);
 
     }
     else{

@@ -18,12 +18,12 @@ namespace Intake{
 pros::ADIAnalogIn BallSenseTop(4);
 }
 namespace Lift{
-  okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::L1];
-  okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::L2];
+  okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::L2];
+  okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::L1];
 }
 namespace Flipper{
-  okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::left];
-  okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::right];
+  okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::right];
+  okapi::ControllerButton BtnDown = master_controller[okapi::ControllerDigital::left];
 }
 namespace Catapult{
   okapi::ControllerButton ChrgeBtn = master_controller[okapi::ControllerDigital::X];
