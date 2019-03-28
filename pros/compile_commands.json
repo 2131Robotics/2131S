@@ -15,6 +15,41 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
+            "-iquote./include/systems/config/",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/systems/config/motors.cpp.o",
+            "src\\systems\\config\\motors.cpp"
+        ],
+        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
+        "file": "src\\systems\\config\\motors.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
             "-iquote./include/systems/config/important/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
@@ -28,81 +63,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/config/important/fish_weee.cpp.o",
+            "bin/systems/config/important/fish_weee.cpp.o",
             "src\\systems\\config\\important\\fish_weee.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
         "file": "src\\systems\\config\\important\\fish_weee.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-fno-ms-extensions",
-            "-fno-ms-compatibility",
-            "-fno-delayed-template-parsing",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/./",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/autonomous.cpp.o",
-            "src\\autonomous.cpp"
-        ],
-        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\autonomous.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-fno-ms-extensions",
-            "-fno-ms-compatibility",
-            "-fno-delayed-template-parsing",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/systems/",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/lift.cpp.o",
-            "src\\systems\\lift.cpp"
-        ],
-        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\lift.cpp"
     },
     {
         "arguments": [
@@ -133,46 +98,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/auto/autointake.cpp.o",
+            "bin/systems/auto/autointake.cpp.o",
             "src\\systems\\auto\\autointake.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
         "file": "src\\systems\\auto\\autointake.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-fno-ms-extensions",
-            "-fno-ms-compatibility",
-            "-fno-delayed-template-parsing",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/systems/config/",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/config/motors.cpp.o",
-            "src\\systems\\config\\motors.cpp"
-        ],
-        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\config\\motors.cpp"
     },
     {
         "arguments": [
@@ -203,46 +133,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/drive.cpp.o",
-            "src\\systems\\drive.cpp"
+            "bin/systems/lift.cpp.o",
+            "src\\systems\\lift.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\drive.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-fno-ms-extensions",
-            "-fno-ms-compatibility",
-            "-fno-delayed-template-parsing",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/./",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/initialize.cpp.o",
-            "src\\initialize.cpp"
-        ],
-        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\initialize.cpp"
+        "file": "src\\systems\\lift.cpp"
     },
     {
         "arguments": [
@@ -273,11 +168,46 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/config/flipper.cpp.o",
-            "src\\systems\\config\\flipper.cpp"
+            "bin/systems/config/controller.cpp.o",
+            "src\\systems\\config\\controller.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\config\\flipper.cpp"
+        "file": "src\\systems\\config\\controller.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/systems/config/",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/systems/config/intake.cpp.o",
+            "src\\systems\\config\\intake.cpp"
+        ],
+        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
+        "file": "src\\systems\\config\\intake.cpp"
     },
     {
         "arguments": [
@@ -308,7 +238,7 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/opcontrol.cpp.o",
+            "bin/opcontrol.cpp.o",
             "src\\opcontrol.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
@@ -343,11 +273,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/config/controller.cpp.o",
-            "src\\systems\\config\\controller.cpp"
+            "bin/systems/config/vars.cpp.o",
+            "src\\systems\\config\\vars.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\config\\controller.cpp"
+        "file": "src\\systems\\config\\vars.cpp"
     },
     {
         "arguments": [
@@ -378,7 +308,42 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/catapult.cpp.o",
+            "bin/systems/drive.cpp.o",
+            "src\\systems\\drive.cpp"
+        ],
+        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
+        "file": "src\\systems\\drive.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/systems/",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/systems/catapult.cpp.o",
             "src\\systems\\catapult.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
@@ -400,7 +365,7 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/systems/config/",
+            "-iquote./include/./",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -413,11 +378,46 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/config/intake.cpp.o",
-            "src\\systems\\config\\intake.cpp"
+            "bin/initialize.cpp.o",
+            "src\\initialize.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\config\\intake.cpp"
+        "file": "src\\initialize.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/./",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/autonomous.cpp.o",
+            "src\\autonomous.cpp"
+        ],
+        "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
+        "file": "src\\autonomous.cpp"
     },
     {
         "arguments": [
@@ -448,10 +448,10 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/sword/AppData/Local/Temp/tmptp0r7aex/systems/config/vars.cpp.o",
-            "src\\systems\\config\\vars.cpp"
+            "bin/systems/config/flipper.cpp.o",
+            "src\\systems\\config\\flipper.cpp"
         ],
         "directory": "C:\\Users\\sword\\AppData\\Local\\VEX Coding Studio\\VEX Coding Studio\\sdk\\user\\S-Team-Repository\\pros",
-        "file": "src\\systems\\config\\vars.cpp"
+        "file": "src\\systems\\config\\flipper.cpp"
     }
 ]
