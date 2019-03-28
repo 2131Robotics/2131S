@@ -14,10 +14,10 @@ namespace Drive{
   extern okapi::ControllerButton DriveToggle;
 }
 namespace Intake{
-  extern okapi::ControllerButton BtnCombo;
   extern okapi::ControllerButton BtnIn;
   extern okapi::ControllerButton BtnOut;
-  extern okapi::ControllerButton BtnTog;
+  extern pros::ADILineSensor BallSenseTop;
+  extern pros::ADILineSensor BallSenseBottom;
 }
 namespace Lift{
   extern okapi::ControllerButton BtnUp;

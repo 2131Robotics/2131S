@@ -64,5 +64,8 @@ namespace Drive{
   }
   namespace Intake{
     okapi::Motor motor(2,false,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
-
+    void setIntakeVel(int vel){
+        if(vel==0) motor.moveVelocity(0);
+        else motor.moveVelocity(vel);
+      }
   }

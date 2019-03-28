@@ -46,13 +46,9 @@ namespace Catapult{
 }
 namespace Intake{
   extern okapi::Motor motor;
-  namespace Auto{
-    namespace Balls{
-      extern pros::ADILineSensor Puncher;
-      extern pros::ADILineSensor Over;
-      extern pros::ADILineSensor Top;
-      extern pros::ADILineSensor Bottom;
-    }
-  }
+  void setIntakeVel(int vel);
+
+
+
 }
 #endif /* end of include guard: MOTOR_CONFIG_HPP */

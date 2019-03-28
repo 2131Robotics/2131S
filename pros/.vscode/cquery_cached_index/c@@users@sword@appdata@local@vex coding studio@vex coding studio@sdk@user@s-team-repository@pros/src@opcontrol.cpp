@@ -32,7 +32,6 @@ void opcontrol() {
 		Flipper::flipper();
 		Lift::lift();
 		Intake::manualintake();
-		// Intake::autointake();
 		Catapult::catapultmanual();
 		// Fishy::fishy();
 
