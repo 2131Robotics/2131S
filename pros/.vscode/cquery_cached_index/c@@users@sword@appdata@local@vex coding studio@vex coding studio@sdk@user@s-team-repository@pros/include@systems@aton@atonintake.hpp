@@ -1,5 +1,5 @@
-#ifndef AUTOINTAKE_HPP
-#define AUTOINTAKE_HPP
+#ifndef ATONINTAKE_HPP
+#define ATONINTAKE_HPP
 
 namespace Intake{
   extern int BottomLightValue;
@@ -11,7 +11,7 @@ namespace Intake{
   extern bool AutoIntakeOff;
   extern bool IntakeFlip;
 
-  void Auto_Intaking(void*AutoIntaking);
+  void AIntake(void*AutoIntaking);
 }
 
 #endif /* end of include guard: AUTOINTAKE_HPP */

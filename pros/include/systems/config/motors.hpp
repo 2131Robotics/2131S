@@ -2,6 +2,7 @@
 #define MOTOR_CONFIG_HPP
 //intagrate into systems files
 #include "okapi/api.hpp"
+#include "systems/ramping.hpp"
 #define FRONT_LEFT_MOTOR 11
 #define FRONT_RIGHT_MOTOR 1
 #define BACK_LEFT_MOTOR 20
@@ -25,30 +26,44 @@ namespace Drive{
   void setMechDriveVel(int LF,int LB,int RF,int RB);
   void DriveMechVelSend(int j1,int j2,int j3,int j4);
   void setDriveVel(int left, int right);
-}
-
-
-
-
-namespace Lift{
-
-  extern okapi::Motor motor;
-}
-namespace Flipper{
-  extern okapi::Motor motor;
-
+extern Ramping LFDR;
+extern Ramping RFDR;
+extern Ramping LBDR;
+extern Ramping RBDR;
 
 }
+
 namespace Catapult{
   extern okapi::Motor motor;
 
+  extern pros::ADILineSensor ChargeLightSensor;
+  void setCatapultVel(int vel);
 
 }
+
 namespace Intake{
   extern okapi::Motor motor;
+
+  extern pros::ADILineSensor BallSenseTop;
+  extern pros::ADILineSensor BallSenseBottom;
   void setIntakeVel(int vel);
 
+}
 
+namespace Lift{
+  extern okapi::Motor motor;
+  void setLiftVel(int vel);
 
 }
-#endif /* end of include guard: MOTOR_CONFIG_HPP */
+
+namespace Flipper{
+  extern okapi::Motor motor;
+  void setFlipVel(int vel);
+
+}
+
+//Sensors
+extern pros::ADIAnalogIn MainAtonSelect;
+extern pros::ADIAnalogIn SecAtonSelect;
+
+#endif /* end of include guard: MAIN_CONFIG_HPP */
