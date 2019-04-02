@@ -1,15 +1,5 @@
 #include "main.h"
-
-void on_center_button() {
-	static bool pressed = false;
-	pressed = !pressed;
-	if (pressed) {
-		pros::lcd::set_text(2, "}(>')!");
-	} else {
-		pros::lcd::clear_line(2);
-	}
-}
-
+#include "systems/drive.hpp"
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -17,10 +7,29 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
-	pros::lcd::set_text(1, "f");
+  Drive::front_left_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
+  Drive::front_left_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
+  Drive::front_right_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
+  Drive::back_right_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
 
-	pros::lcd::register_btn1_cb(on_center_button);
+  Catapult::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
+
+  Intake::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
+
+  Lift::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::hold);
+
+  Flipper::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
+
+  Drive::front_left_motor.tarePosition();
+  Drive::front_left_motor.tarePosition();
+  Drive::front_right_motor.tarePosition();
+  Drive::back_right_motor.tarePosition();
+
+  Flipper::motor.tarePosition();
+  Lift::motor.tarePosition();
+
+  // pros::Task CatapultTask (usefull, (void) "PROS", TASK_PRIORITY_DEFAULT,
+  // TASK_STACK_DEPTH_DEFAULT, "My Task");
 }
 
 /**
@@ -28,7 +37,9 @@ void initialize() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {}
+void disabled() {
+  //future aton selector
+}
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field
