@@ -39,3 +39,17 @@ void FrontBlueNP(){
   Drive::AtonDriveRamp(-50);
   Flipper::RotateTo(100);
 }
+
+ void BackBlueNP(){
+Drive::AtonDriveRamp(900);
+Drive::AtonTurn(-200);
+Drive::AtonDriveRamp(-150);
+Flipper::RotateTo(100);
+ }
+
+void BackRedNP(){
+  Drive::AtonDriveRamp(900);
+  Drive::AtonTurn(200);
+  Drive::AtonDriveRamp(-150);
+  Flipper::RotateTo(100);
+}
