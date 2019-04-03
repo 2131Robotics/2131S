@@ -5,7 +5,6 @@
 #include "systems/aton/atoncatapult.hpp"
 #include "systems/aton/atonintake.hpp"
 #include "systems/aton/atonlift.hpp"
-
 #include "systems/aton/routine.hpp"
 #include "systems/aton/aton_selection.hpp"
 
@@ -20,13 +19,13 @@
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {
-  pros::Task DriveRampingTask (Drive::Drive_Ramping,(void*)"PROS",
-    TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
-  pros::Task AutoCatapultTask (Catapult::ACatapult,(void*)"PROS",
-    TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "AutoCatapultTask");
-  pros::Task AutoIntakeTask (Intake::AIntake,(void*)"PROS",
-    TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
+ void autonomous() {
+   pros::Task DriveRampingTask (Drive::Drive_Ramping,(void*)"PROS",
+     TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
+   pros::Task AutoCatapultTask (Catapult::catapultTaskChargeFire,(void*)"PROS",
+     TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "AutoCatapultTask");
+   pros::Task AutoIntakeTask (Intake::Auto_Intaking,(void*)"PROS",
+     TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
 
-  PotSelectors();
-}
+   PotSelectors();
+ }

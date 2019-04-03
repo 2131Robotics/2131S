@@ -11,7 +11,7 @@ namespace Intake{
   extern bool AutoIntakeOff;
   extern bool IntakeFlip;
 
-  void AIntake(void*AutoIntaking);
+  void Auto_Intaking(void*AutoIntaking);
 }
 
 #endif /* end of include guard: AUTOINTAKE_HPP */

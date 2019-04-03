@@ -18,18 +18,19 @@ namespace Drive{
   extern okapi::Motor front_right_motor;
   extern okapi::Motor back_left_motor;
   extern okapi::Motor back_right_motor;
-  void setMechLFVel(int pct);
-  void setMechLBVel(int pct);
-  void setMechRFVel(int pct);
-  void setMechRBVel(int pct);
 
-  void setMechDriveVel(int LF,int LB,int RF,int RB);
-  void DriveMechVelSend(int j1,int j2,int j3,int j4);
-  void setDriveVel(int left, int right);
 extern Ramping LFDR;
 extern Ramping RFDR;
 extern Ramping LBDR;
 extern Ramping RBDR;
+void setMechLFVel(int pct);
+void setMechLBVel(int pct);
+void setMechRFVel(int pct);
+void setMechRBVel(int pct);
+
+void setMechDriveVel(int LF,int LB,int RF,int RB);
+void DriveMechVelSend(int j1,int j2,int j3,int j4);
+void setDriveVel(int left, int right);
 
 }
 

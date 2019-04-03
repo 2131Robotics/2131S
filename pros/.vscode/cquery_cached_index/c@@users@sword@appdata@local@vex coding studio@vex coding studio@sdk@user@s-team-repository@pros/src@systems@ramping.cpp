@@ -1,200 +1,57 @@
 #include "main.h"
 #include "systems/ramping.hpp"
 #include "systems/drive.hpp"
-//------Manual Drive Controll------------//
-namespace Drive{
-//------------Aton Drive Ramping---------------------//
-  void AtonDriveRamp(double Distance,int Pct,int EndWait,int Correction){
-    //update ramping speed
-    LFDR.ChangeMsec = 4;
-    RFDR.ChangeMsec = 4;
-    LBDR.ChangeMsec = 4;
-    RBDR.ChangeMsec = 4;
+#include "systems/config/motors.hpp"
+Ramping::Ramping(int CP,int CM,int MaxP,int MinDP,int MinUP){
+  //ChangePct,ChangeMsec,MaxPct
+  ChangePct=CP;
+  ChangeMsec=CM;
+  MaxPct=MaxP;
+  MinUpPct=MinUP;
+  MinDownPct=MinDP;
+}
 
-    double Direction=sgn(Distance);
-    int LFPowerSend=0;
-    int LBPowerSend=0;
-    int RFPowerSend=0;
-    int RBPowerSend=0;
-    //clear enc
-    front_left_motor.tarePosition();
-    back_left_motor.tarePosition();
-    back_right_motor.tarePosition();
-    front_right_motor.tarePosition();
-    //is it there yet?
-    while(std::abs(back_right_motor.getPosition())<std::abs(Distance)){
-      double LEncValue=front_left_motor.getPosition();
-      double REncValue=front_right_motor.getPosition();
-      //straiten
-      if(std::abs(LEncValue)>std::abs(REncValue)){
-        LFPowerSend=Pct-Correction;
-        LBPowerSend=Pct-Correction;
-        RFPowerSend=Pct;
-        RBPowerSend=Pct;
-      }
-      else if(std::abs(LEncValue)<std::abs(REncValue)){
-        LFPowerSend=Pct;
-        LBPowerSend=Pct;
-        RFPowerSend=Pct-Correction;
-        RBPowerSend=Pct-Correction;
-      }
-      else if(std::abs(LEncValue)==std::abs(REncValue)){
-        LFPowerSend=Pct;
-        LBPowerSend=Pct;
-        RFPowerSend=Pct;
-        RBPowerSend=Pct;
-      }
-      //correct direction
-      LFPowerSend=LFPowerSend*Direction;
-      LBPowerSend=LBPowerSend*Direction;
-      RFPowerSend=RFPowerSend*Direction;
-      RBPowerSend=RBPowerSend*Direction;
-      //send to SetDRpower
-      SetDRMvel(LFPowerSend,LBPowerSend,RFPowerSend,RBPowerSend);
+void Ramping::TaskRun(){
+  if(RequestedPct>Pct){ //ramp up
+    Pct=Pct+ChangePct;
+  }
+  else if(RequestedPct<Pct){ //ramp down
+    Pct=Pct-ChangePct;
+  }
+  //limit Pct
+  if(Pct>MaxPct)	Pct=MaxPct;
+  if(Pct<-MaxPct)	Pct=-MaxPct;
+  if(Pct>0 && Pct<MinUpPct) Pct=MinUpPct;
+  if(Pct<0 && Pct>MinDownPct)    Pct=MinDownPct;
+}
+
+namespace Drive{
+  void SetDRMvel(int LFpower,int LBpower,int RFpower,int RBpower){ //DMR
+    LFDR.RequestedPct = LFpower;
+    RFDR.RequestedPct = RFpower;
+    LBDR.RequestedPct = LBpower;
+    RBDR.RequestedPct = RBpower;
+  }
+  void DI(int Lpower,int Rpower){
+    LFDR.RequestedPct=Lpower;
+    RFDR.RequestedPct=Rpower;
+    LBDR.RequestedPct=Lpower;
+    RBDR.RequestedPct=Rpower;
+    LFDR.Pct=Lpower;
+    RFDR.Pct=Rpower;
+    LBDR.Pct=Lpower;
+    RBDR.Pct=Rpower;
+    Drive::setDriveVel(LBDR.Pct,RBDR.Pct);
+  }
+  void Drive_Ramping(void*DriveRampingTask){
+    MechDriveRampingEnabled=true;
+    while(MechDriveRampingEnabled){
+      LFDR.TaskRun();
+      RFDR.TaskRun();
+      LBDR.TaskRun();
+      RBDR.TaskRun();
+      Drive::setMechDriveVel(LFDR.Pct,LBDR.Pct,RFDR.Pct,RBDR.Pct);
       pros::delay(LFDR.ChangeMsec);
     }
-    SetDRMvel(0,0,0,0);
-    pros::delay(EndWait);
-    front_left_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-    back_left_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-    front_right_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-    back_right_motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-    pros::delay(EndWait);
-    // MechDriveRelease();
-  }
-
-  void TimeAutoDrive(int time, int power){
-    back_left_motor.tarePosition();
-    back_right_motor.tarePosition();
-    front_left_motor.tarePosition();
-    front_right_motor.tarePosition();
-
-    DI(power,power);
-    pros::delay(time);
-    DI(0,0);
-    while(LBDR.Pct!=0 || RBDR.Pct!=0){
-      pros::delay(1);
-    }
-  }
-
-  void AtonSlide(double Distance,int Pct,int EndWait,int Correction){
-    //update ramping speed
-    LFDR.ChangeMsec = 3;
-    RFDR.ChangeMsec = 3;
-    LBDR.ChangeMsec = 3;
-    RBDR.ChangeMsec = 3;
-    //calculate direction and set L & R PowerSend
-    double Direction=sgn(Distance);
-    int LFPowerSend=0;
-    int LBPowerSend=0;
-    int RFPowerSend=0;
-    int RBPowerSend=0;
-    //clear enc
-    front_left_motor.tarePosition();
-    back_left_motor.tarePosition();
-    back_right_motor.tarePosition();
-    front_right_motor.tarePosition();
-    //is it there yet?
-    while(std::abs(back_right_motor.getPosition())<std::abs(Distance)){
-      double LEncValue=front_left_motor.getPosition();
-      double REncValue=back_right_motor.getPosition();
-      //straiten
-      if(std::abs(LEncValue)>std::abs(REncValue)){
-        LFPowerSend=Pct-Correction;
-        LBPowerSend=Pct-Correction;
-        RFPowerSend=Pct;
-        RBPowerSend=Pct;
-      }
-      else if(std::abs(LEncValue)<std::abs(REncValue)){
-        LFPowerSend=Pct;
-        LBPowerSend=Pct;
-        RFPowerSend=Pct-Correction;
-        RBPowerSend=Pct-Correction;
-      }
-      else if(std::abs(LEncValue)==std::abs(REncValue)){
-        LFPowerSend=Pct;
-        LBPowerSend=Pct;
-        RFPowerSend=Pct;
-        RBPowerSend=Pct;
-      }
-      //correct direction
-      if(Direction == 1){
-        LFPowerSend=LFPowerSend;
-        LBPowerSend=LBPowerSend*(-1);
-        RFPowerSend=RFPowerSend*(-1);
-        RBPowerSend=RBPowerSend;
-      }
-      if(Direction == -1){
-        LFPowerSend=LFPowerSend*(-1);
-        LBPowerSend=LBPowerSend;
-        RFPowerSend=RFPowerSend;
-        RBPowerSend=RBPowerSend*(-1);
-      }
-      //send to SetDRpower
-      SetDRMvel(LFPowerSend,LBPowerSend,RFPowerSend,RBPowerSend);
-      pros::delay(LBDR.ChangeMsec);
-    }
-    SetDRMvel(0,0,0,0);
-    pros::delay(EndWait);
-  }
-
-  void SlideRecon(int time, int power, int dir){
-      MechDriveRampingEnabled=false;
-      setMechLFVel(power*dir);
-      setMechLBVel(-power*dir);
-      setMechRFVel(-power*dir);
-      setMechRBVel(power*dir);
-
-      pros::delay(time);
-
-      setMechLFVel(0);
-      setMechLBVel(0);
-      setMechRFVel(0);
-      setMechRBVel(0);
-
-      pros::Task DriveRampingTask (Drive::Drive_Ramping,(void*)"PROS",
-        TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
-  }
-
-  void AtonTurn(double deg,int LPowerSend,int RPowerSend,int EndWait){
-    //right 90 turn 6000
-    //right 180 turn 12000
-    //right 270 turn 18000
-    //left 90 turn -6000
-    //left 180 turn -12000
-    //left 270 turn -18000
-    //-left,+right
-    int Dir=sgn(deg);
-    deg=abs(deg)/12.56;
-    LPowerSend=LPowerSend*Dir;
-    RPowerSend=RPowerSend*Dir;
-
-    back_left_motor.tarePosition();
-    back_right_motor.tarePosition();
-    front_left_motor.tarePosition();
-    front_right_motor.tarePosition();
-
-    double RFValue = std::abs(front_right_motor.getPosition());
-    double RBValue = std::abs(back_right_motor.getPosition());
-    double LFValue = std::abs(front_left_motor.getPosition());
-    double LBValue = std::abs(back_left_motor.getPosition());
-    double AbsTurnRotationsAvg = ((RFValue+RBValue+LFValue+LBValue)/4);
-
-    while(AbsTurnRotationsAvg < std::abs(deg)){
-      DI(LPowerSend,-RPowerSend);
-
-      RFValue = std::abs(front_right_motor.getPosition());
-      RBValue = std::abs(back_right_motor.getPosition());
-      LFValue = std::abs(front_left_motor.getPosition());
-      LBValue = std::abs(back_left_motor.getPosition());
-      AbsTurnRotationsAvg = ((RFValue+RBValue+LFValue+LBValue)/4);
-
-      pros::delay(1);
-    }
-    DI(0,0);
-    MechDriveLock();
-    pros::delay(EndWait);
-    //DI(0,0);
-    MechDriveRelease();
   }
 }

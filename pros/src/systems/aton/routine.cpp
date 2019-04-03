@@ -6,21 +6,36 @@
 #include "systems/aton/atonflipper.hpp"
 #include "systems/aton/atondrive.hpp"
 #include "systems/aton/atonintake.hpp"
+
 //atons are set up here
 
 
-void FrontRed(){
-Drive::ADrive(900);
-Drive::ADrive(-900);
-Drive::ATurn(600);
-Drive::ADrive(100);
+void FrontRedNP(){
+Drive::AtonDriveRamp(900);
+Drive::AtonDriveRamp(-900);
+Drive::AtonTurn(600);
+Drive::AtonDriveRamp(100);
 Catapult::Shoot=true;
 pros::delay(100);
-Drive::ADrive(500);
-Drive::ADrive(-400);
-Drive::ATurn(250);
-Drive::ADrive(-50);
+Drive::AtonDriveRamp(500);
+Drive::AtonDriveRamp(-400);
+Drive::AtonTurn(250);
+Drive::AtonDriveRamp(-50);
 Flipper::RotateTo(100);
 
 
+}
+
+void FrontBlueNP(){
+  Drive::AtonDriveRamp(900);
+  Drive::AtonDriveRamp(-900);
+  Drive::AtonTurn(-600);
+  Drive::AtonDriveRamp(100);
+  Catapult::Shoot=true;
+  pros::delay(100);
+  Drive::AtonDriveRamp(500);
+  Drive::AtonDriveRamp(-400);
+  Drive::AtonTurn(-250);
+  Drive::AtonDriveRamp(-50);
+  Flipper::RotateTo(100);
 }

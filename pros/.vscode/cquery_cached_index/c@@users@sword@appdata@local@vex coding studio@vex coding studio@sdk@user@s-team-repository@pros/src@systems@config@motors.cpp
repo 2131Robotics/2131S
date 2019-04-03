@@ -1,10 +1,21 @@
 #include "main.h"
 #include "systems/config/motors.hpp"
+#include "systems/drive.hpp"
+#include "systems/ramping.hpp"
 namespace Drive{
-  okapi::Motor front_left_motor(11,false,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor front_right_motor(1,true,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor back_left_motor(20,false,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor back_right_motor(10,true,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
+  okapi::Motor front_left_motor(11,false,okapi::AbstractMotor::gearset::green,
+  okapi::AbstractMotor::encoderUnits::degrees);
+okapi::Motor back_left_motor(20,false,okapi::AbstractMotor::gearset::green,
+  okapi::AbstractMotor::encoderUnits::degrees);
+okapi::Motor front_right_motor(1,true,okapi::AbstractMotor::gearset::green,
+  okapi::AbstractMotor::encoderUnits::degrees);
+okapi::Motor back_right_motor(10,true,okapi::AbstractMotor::gearset::green,
+  okapi::AbstractMotor::encoderUnits::degrees);
+Ramping LFDR(1,4,200);
+Ramping RFDR(1,4,200);
+Ramping LBDR(1,4,200);
+Ramping RBDR(1,4,200);
+  
   void setMechLFVel(int vel){
     if(vel==0) front_left_motor.moveVelocity(0);
     else front_left_motor.moveVelocity(vel);
@@ -43,10 +54,7 @@ namespace Drive{
       setMechLBVel(left);
       setMechRFVel(right);
       setMechRBVel(right);
-      Ramping LFDR(1,4,200);
-  Ramping RFDR(1,4,200);
-  Ramping LBDR(1,4,200);
-  Ramping RBDR(1,4,200);
+
     }
   }
 
