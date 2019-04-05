@@ -1,5 +1,5 @@
-#ifndef MOTOR_CONFIG_HPP
-#define MOTOR_CONFIG_HPP
+#ifndef MOTORS_HPP
+#define MOTORS_HPP
 //intagrate into systems files
 #include "okapi/api.hpp"
 #include "systems/ramping.hpp"
@@ -67,4 +67,4 @@ namespace Flipper{
 extern pros::ADIAnalogIn MainAtonSelect;
 extern pros::ADIAnalogIn SecAtonSelect;
 
-#endif /* end of include guard: MAIN_CONFIG_HPP */
+#endif /* end of include guard: MOTOR_HPP */

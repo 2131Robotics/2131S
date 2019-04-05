@@ -1,3 +1,7 @@
+#include "main.h"
+#include "systems/config/vars.hpp"
+
+
 double sgn(double Var) {
 		if (Var > 0)   Var = 1;
 		else        Var = -1;

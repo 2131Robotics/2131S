@@ -11,17 +11,17 @@
 
 /* No Park Match Atons */
 void FrontRedNP(){
-Drive::ADrive(900);
-Drive::ADrive(-900);
-Drive::ATurn(600);
-Drive::ADrive(100);
-Catapult::Shoot=true;
-pros::delay(100);
-Drive::ADrive(500);
-Drive::ADrive(-400);
-Drive::ATurn(250);
-Drive::ADrive(-50);
-Flipper::RotateTo(100);
+  Drive::ADrive(900);
+  Drive::ADrive(-900);
+  Drive::ATurn(600);
+  Drive::ADrive(100);
+  Catapult::Shoot=true;
+  pros::delay(100);
+  Drive::ADrive(500);
+  Drive::ADrive(-400);
+  Drive::ATurn(250);
+  Drive::ADrive(-50);
+  Flipper::RotateTo(100);
 
 
 }
@@ -40,12 +40,12 @@ void FrontBlueNP(){
   Flipper::RotateTo(100);
 }
 
- void BackBlueNP(){
-Drive::ADrive(900);
-Drive::ATurn(-200);
-Drive::ADrive(-150);
-Flipper::RotateTo(100);
- }
+void BackBlueNP(){
+  Drive::ADrive(900);
+  Drive::ATurn(-200);
+  Drive::ADrive(-150);
+  Flipper::RotateTo(100);
+}
 
 void BackRedNP(){
   Drive::ADrive(900);
@@ -60,19 +60,19 @@ void BackRedNP(){
 
 /* Skills Aton */
 void Skills(){
-Drive::ADrive(900);
-Drive::ASlide(200);
-Drive::ADrive(-900);
-Drive::ATurn(20);
-Drive::ADrive(600);
-Catapult::Shoot=true;
-pros::delay(100);
-Drive::ADrive(500);
-Drive::ADrive(-600);
-Drive::ATurn(-20);
-Drive::ADrive(900);
-Drive::ADrive(-100);
-Drive::ASlide(-50);
-Drive::ATurn(15);
-Catapult::Shoot=true;
+  Drive::ADrive(900);
+  Drive::ASlide(200);
+  Drive::ADrive(-900);
+  Drive::ATurn(20);
+  Drive::ADrive(600);
+  Catapult::Shoot=true;
+  pros::delay(100);
+  Drive::ADrive(500);
+  Drive::ADrive(-600);
+  Drive::ATurn(-20);
+  Drive::ADrive(900);
+  Drive::ADrive(-100);
+  Drive::ASlide(-50);
+  Drive::ATurn(15);
+  Catapult::Shoot=true;
 }

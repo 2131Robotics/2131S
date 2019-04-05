@@ -1,13 +1,10 @@
-#ifndef CONTROLLER_CONFIG_HPP
-#define CONTROLLER_CONFIG_HPP
+#ifndef CONTROLLER_HPP
+#define CONTROLLER_HPP
 
 #include "okapi/api.hpp"
 extern okapi::Controller master_controller;
 
-namespace Flow{
-  extern okapi::ControllerButton BtnTog;
-  extern okapi::ControllerButton BtnToCaps;
-}
+
 namespace Drive{
   extern okapi::ControllerButton BtnBrake;
   extern okapi::ControllerButton HoldToggle;
@@ -31,4 +28,4 @@ namespace Flipper{
 namespace Catapult{
   extern okapi::ControllerButton ChrgeBtn;
 }
-#endif /* end of include guard: CONTROLLER_CONFIG_HPP */
+#endif /* end of include guard: CONTROLLER_HPP */
