@@ -3,7 +3,7 @@
 
 namespace Lift{
 
-void lift();
+  void lift();
 }
 
 

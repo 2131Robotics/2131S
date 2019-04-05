@@ -5,8 +5,8 @@
 #include "systems/config/motors.hpp"
 //------Manual Drive Controll------------//
 namespace Drive{
-//------------Aton Drive Ramping---------------------//
-//A stands for aton.
+  //------------Aton Drive Ramping---------------------//
+  //A stands for aton.
   void ADrive(double Distance,int Pct,int EndWait,int Correction){
     //update ramping speed
     LFDR.ChangeMsec = 4;
@@ -142,21 +142,21 @@ namespace Drive{
   }
 
   void SlideRecon(int time, int power, int dir){
-      MechDriveRampingEnabled=false;
-      setMechLFVel(power*dir);
-      setMechLBVel(-power*dir);
-      setMechRFVel(-power*dir);
-      setMechRBVel(power*dir);
+    MechDriveRampingEnabled=false;
+    setMechLFVel(power*dir);
+    setMechLBVel(-power*dir);
+    setMechRFVel(-power*dir);
+    setMechRBVel(power*dir);
 
-      pros::delay(time);
+    pros::delay(time);
 
-      setMechLFVel(0);
-      setMechLBVel(0);
-      setMechRFVel(0);
-      setMechRBVel(0);
+    setMechLFVel(0);
+    setMechLBVel(0);
+    setMechRFVel(0);
+    setMechRBVel(0);
 
-      pros::Task DriveRampingTask (Drive::Drive_Ramping,(void*)"PROS",
-        TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
+    pros::Task DriveRampingTask (Drive::Drive_Ramping,(void*)"PROS",
+    TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
   }
 
   void ATurn(double deg,int LPowerSend,int RPowerSend,int EndWait){

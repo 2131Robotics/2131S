@@ -2,7 +2,7 @@
 #define FISH_WEEE_HPP
 namespace Fishy{
 
-void fishy();
+  void fishy();
 
 
 }

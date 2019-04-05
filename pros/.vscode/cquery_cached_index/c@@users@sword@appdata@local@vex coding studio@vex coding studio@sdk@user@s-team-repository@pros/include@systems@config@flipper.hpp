@@ -2,6 +2,6 @@
 #define FLIPPER_HPP
 namespace Flipper{
 
-void flipper(void);
+  void flipper(void);
 }
 #endif /* end of include guard: FLIPPER_HPP */

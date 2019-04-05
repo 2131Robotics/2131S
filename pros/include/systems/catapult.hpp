@@ -3,6 +3,6 @@
 
 namespace Catapult{
 
-void catapultmanual();
+  void catapultmanual();
 }
 #endif /* end of include guard: CATAPULT_HPP */

@@ -2,10 +2,7 @@
 #include "systems/config/controller.hpp"
 // okapi::Controller master(okapi::ControllerId::master);
 okapi::Controller master_controller(okapi::ControllerId::master);
-namespace Flow{
-  okapi::ControllerButton BtnTog = master_controller[okapi::ControllerDigital::up];
-  okapi::ControllerButton BtnToCaps = master_controller[okapi::ControllerDigital::L1];
-}
+
 namespace Drive{
   okapi::ControllerButton HoldToggle = master_controller[okapi::ControllerDigital::B];
   okapi::ControllerButton DriveToggle = master_controller[okapi::ControllerDigital::Y];
@@ -15,7 +12,7 @@ namespace Intake{
   okapi::ControllerButton BtnIn = master_controller[okapi::ControllerDigital::R1];
   okapi::ControllerButton BtnOut = master_controller[okapi::ControllerDigital::R2];
   pros::ADIAnalogIn BallSenseBottom(6);
-pros::ADIAnalogIn BallSenseTop(4);
+  pros::ADIAnalogIn BallSenseTop(4);
 }
 namespace Lift{
   okapi::ControllerButton BtnUp = master_controller[okapi::ControllerDigital::L2];
