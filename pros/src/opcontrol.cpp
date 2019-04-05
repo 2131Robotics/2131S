@@ -29,7 +29,7 @@ void opcontrol() {
 
 
 	while (true) {
-		Drive::IsDriveFippedControll();
+		Drive::IsDriveFlippedControll();
 		Drive::DriveCont_LockContM();
 		Flipper::flipper();
 		Lift::lift();

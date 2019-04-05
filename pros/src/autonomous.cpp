@@ -22,9 +22,9 @@
  void autonomous() {
    pros::Task DriveRampingTask (Drive::Drive_Ramping,(void*)"PROS",
      TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
-   pros::Task AutoCatapultTask (Catapult::catapultTaskChargeFire,(void*)"PROS",
+   pros::Task AutoCatapultTask (Catapult::catapultFire,(void*)"PROS",
      TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "AutoCatapultTask");
-   pros::Task AutoIntakeTask (Intake::Auto_Intaking,(void*)"PROS",
+   pros::Task AutoIntakeTask (Intake::AIntaking,(void*)"PROS",
      TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
 
    PotSelectors();

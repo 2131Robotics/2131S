@@ -6,7 +6,8 @@
 //------Manual Drive Controll------------//
 namespace Drive{
 //------------Aton Drive Ramping---------------------//
-  void AtonDriveRamp(double Distance,int Pct,int EndWait,int Correction){
+//A stands for aton.
+  void ADrive(double Distance,int Pct,int EndWait,int Correction){
     //update ramping speed
     LFDR.ChangeMsec = 4;
     RFDR.ChangeMsec = 4;
@@ -65,7 +66,7 @@ namespace Drive{
     // MechDriveRelease();
   }
 
-  void TimeAutoDrive(int time, int power){
+  void TimeDrive(int time, int power){
     back_left_motor.tarePosition();
     back_right_motor.tarePosition();
     front_left_motor.tarePosition();
@@ -79,7 +80,7 @@ namespace Drive{
     }
   }
 
-  void AtonSlide(double Distance,int Pct,int EndWait,int Correction){
+  void ASlide(double Distance,int Pct,int EndWait,int Correction){
     //update ramping speed
     LFDR.ChangeMsec = 3;
     RFDR.ChangeMsec = 3;
@@ -158,7 +159,7 @@ namespace Drive{
         TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DriveRampingTask");
   }
 
-  void AtonTurn(double deg,int LPowerSend,int RPowerSend,int EndWait){
+  void ATurn(double deg,int LPowerSend,int RPowerSend,int EndWait){
     //right 90 turn 6000
     //right 180 turn 12000
     //right 270 turn 18000

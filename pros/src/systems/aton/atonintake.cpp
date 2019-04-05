@@ -15,7 +15,7 @@ namespace Intake{
   bool AutoIntakeOff = false;
   bool IntakeFlip=false;
 
-  void Auto_Intaking(void*AutoIntaking){
+  void AIntaking(void*AutoIntaking){
     AutoIntakeTaskEnabled = true;
     // AutoIntakeEnabled = true;
     while(AutoIntakeTaskEnabled){

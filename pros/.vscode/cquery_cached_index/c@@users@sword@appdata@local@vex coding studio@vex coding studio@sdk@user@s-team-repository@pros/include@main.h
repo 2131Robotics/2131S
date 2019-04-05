@@ -43,7 +43,6 @@
 //all includes go here
 #include "okapi/api.hpp"
 #include "pros/api_legacy.h"
-#include "okapi/pathfinder/include/pathfinder/modifiers/tank.h"
 #include "systems/drive.hpp"
 #include "systems/config/motors.hpp"
 #include "systems/config/controller.hpp"
@@ -63,7 +62,6 @@
 // using namespace pros;
 // using namespace pros::literals;
 
-
 using namespace okapi;
 //auto drive = ChassisControllerFactory::create( TOP_RIGHT_PORT,
 //  BACK_RIGHT_PORT, BACK_LEFT_PORT, TOP_LEFT_PORT);
@@ -73,6 +71,7 @@ using namespace okapi;
 * that they can be called from user code (i.e. calling autonomous from a
 * button press in opcontrol() for testing purposes).
 */
+
 #ifdef __cplusplus
 extern "C" {
   #endif

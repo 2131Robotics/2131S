@@ -11,46 +11,46 @@
 
 /* No Park Match Atons */
 void FrontRedNP(){
-Drive::AtonDriveRamp(900);
-Drive::AtonDriveRamp(-900);
-Drive::AtonTurn(600);
-Drive::AtonDriveRamp(100);
+Drive::ADrive(900);
+Drive::ADrive(-900);
+Drive::ATurn(600);
+Drive::ADrive(100);
 Catapult::Shoot=true;
 pros::delay(100);
-Drive::AtonDriveRamp(500);
-Drive::AtonDriveRamp(-400);
-Drive::AtonTurn(250);
-Drive::AtonDriveRamp(-50);
+Drive::ADrive(500);
+Drive::ADrive(-400);
+Drive::ATurn(250);
+Drive::ADrive(-50);
 Flipper::RotateTo(100);
 
 
 }
 
 void FrontBlueNP(){
-  Drive::AtonDriveRamp(900);
-  Drive::AtonDriveRamp(-900);
-  Drive::AtonTurn(-600);
-  Drive::AtonDriveRamp(100);
+  Drive::ADrive(900);
+  Drive::ADrive(-900);
+  Drive::ATurn(-600);
+  Drive::ADrive(100);
   Catapult::Shoot=true;
   pros::delay(100);
-  Drive::AtonDriveRamp(500);
-  Drive::AtonDriveRamp(-400);
-  Drive::AtonTurn(-250);
-  Drive::AtonDriveRamp(-50);
+  Drive::ADrive(500);
+  Drive::ADrive(-400);
+  Drive::ATurn(-250);
+  Drive::ADrive(-50);
   Flipper::RotateTo(100);
 }
 
  void BackBlueNP(){
-Drive::AtonDriveRamp(900);
-Drive::AtonTurn(-200);
-Drive::AtonDriveRamp(-150);
+Drive::ADrive(900);
+Drive::ATurn(-200);
+Drive::ADrive(-150);
 Flipper::RotateTo(100);
  }
 
 void BackRedNP(){
-  Drive::AtonDriveRamp(900);
-  Drive::AtonTurn(200);
-  Drive::AtonDriveRamp(-150);
+  Drive::ADrive(900);
+  Drive::ATurn(200);
+  Drive::ADrive(-150);
   Flipper::RotateTo(100);
 }
 /* Parking Match Atons */
@@ -60,19 +60,19 @@ void BackRedNP(){
 
 /* Skills Aton */
 void Skills(){
-Drive::AtonDriveRamp(900);
-Drive::AtonSlide(200);
-Drive::AtonDriveRamp(-900);
-Drive::AtonTurn(20);
-Drive::AtonDriveRamp(600);
+Drive::ADrive(900);
+Drive::ASlide(200);
+Drive::ADrive(-900);
+Drive::ATurn(20);
+Drive::ADrive(600);
 Catapult::Shoot=true;
 pros::delay(100);
-Drive::AtonDriveRamp(500);
-Drive::AtonDriveRamp(-600);
-Drive::AtonTurn(-20);
-Drive::AtonDriveRamp(900);
-Drive::AtonDriveRamp(-100);
-Drive::AtonSlide(-50);
-Drive::AtonTurn(15);
+Drive::ADrive(500);
+Drive::ADrive(-600);
+Drive::ATurn(-20);
+Drive::ADrive(900);
+Drive::ADrive(-100);
+Drive::ASlide(-50);
+Drive::ATurn(15);
 Catapult::Shoot=true;
 }

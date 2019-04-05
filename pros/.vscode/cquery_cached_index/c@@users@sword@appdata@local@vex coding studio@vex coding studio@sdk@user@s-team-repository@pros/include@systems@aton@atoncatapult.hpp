@@ -7,7 +7,7 @@ namespace Catapult{
   extern int ChargeSenseValue;
   extern int ChargeMaxValue;
 
-  void catapultTaskChargeFire(void*CatapultTask);
+  void catapultFire(void*CatapultTask);
 }
 
 #endif /* end of include guard: CATAPULT_HPP */

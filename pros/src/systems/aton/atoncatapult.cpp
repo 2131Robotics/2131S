@@ -10,7 +10,7 @@ namespace Catapult{
   int ChargeSenseValue;
   int ChargeMaxValue = 2500;
 
-  void catapultTaskChargeFire(void*CatapultTask){
+  void catapultFire(void*CatapultTask){
     while(AutoCatapultEnabled){
       ChargeSenseValue = ChargeLightSensor.get_value();
 

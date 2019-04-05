@@ -15,7 +15,7 @@ Ramping LFDR(1,4,200);
 Ramping RFDR(1,4,200);
 Ramping LBDR(1,4,200);
 Ramping RBDR(1,4,200);
-  
+
   void setMechLFVel(int vel){
     if(vel==0) front_left_motor.moveVelocity(0);
     else front_left_motor.moveVelocity(vel);
@@ -69,7 +69,7 @@ Ramping RBDR(1,4,200);
 
 
   namespace Lift{
-    okapi::Motor motor(9,false,okapi::AbstractMotor::gearset::red,okapi::AbstractMotor::encoderUnits::degrees);
+    okapi::Motor motor(9,false,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
     void setLiftVel(int vel){
       if(vel==0) motor.moveVelocity(0);
       else motor.moveVelocity(vel);

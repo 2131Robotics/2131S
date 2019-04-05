@@ -1,7 +1,7 @@
 #include "main.h"
 #include "systems/config/vars.hpp"
 namespace Drive{
-  void IsDriveFippedControll(){
+  void IsDriveFlippedControll(){
      // if(DriveToggle.isPressed() && DriveDirConBtnPressed==false){
        // DriveDirConBtnPressed=true;
        // DriveDirInverted=!DriveDirInverted;
