@@ -59,3 +59,20 @@ void BackRedNP(){
 
 
 /* Skills Aton */
+void Skills(){
+Drive::AtonDriveRamp(900);
+Drive::AtonSlide(200);
+Drive::AtonDriveRamp(-900);
+Drive::AtonTurn(20);
+Drive::AtonDriveRamp(600);
+Catapult::Shoot=true;
+pros::delay(100);
+Drive::AtonDriveRamp(500);
+Drive::AtonDriveRamp(-600);
+Drive::AtonTurn(-20);
+Drive::AtonDriveRamp(900);
+Drive::AtonDriveRamp(-100);
+Drive::AtonSlide(-50);
+Drive::AtonTurn(15);
+Catapult::Shoot=true;
+}
