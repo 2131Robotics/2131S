@@ -21,18 +21,9 @@ bool DriveDirInverted = false;
 bool FlipperMotorConBtnPressed;
 bool FlipperMotorInverted = false;
 
-/*Wrist vars*/
-bool WristTaskEnabled;
-bool WristMotorConBtnPressed;
-bool WristMotorInverted = false;
-bool WristCalibrated=false;
-bool wristRan=true;
-//bool WristMotorConBtnTwoPressed;
-//bool WristMotorInvertedTwo = true;
-
 /*Catapult vars*/
 bool AutoCatapultEnabled = true;
-
+bool IsCharged = false;
 /*Intake vars*/
 bool AutoIntakeEnabled = false;
 bool AutoIntakeTaskEnabled = false;

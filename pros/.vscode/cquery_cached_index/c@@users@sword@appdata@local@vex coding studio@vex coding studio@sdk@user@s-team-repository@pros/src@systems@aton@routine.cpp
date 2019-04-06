@@ -131,6 +131,6 @@ void Skills(){
   Drive::ADrive(900);
   Drive::ADrive(-100);
   Drive::ASlide(-50);
-  Drive::ATurn(-6000);
+  Drive::ATurn(-4000);
   Catapult::Shoot=true;
 }

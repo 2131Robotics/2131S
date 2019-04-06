@@ -14,7 +14,7 @@ extern bool DriveDirInverted;
 
 /*Catapult vars*/
 extern bool AutoCatapultEnabled;
-
+extern bool IsCharged;
 /*Intake vars*/
 extern bool AutoIntakeEnabled;
 extern bool AutoIntakeTaskEnabled;
