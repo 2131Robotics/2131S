@@ -11,8 +11,8 @@ namespace Intake {
   extern bool AutoIntakeOff;
   extern bool IntakeFlip;
 
-  void manualintake();
-  // void autointake();
+  void manualintake(void);
+   void autointake(void);
 }
 
 #endif
