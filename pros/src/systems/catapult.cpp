@@ -4,7 +4,6 @@
 #include "systems/config/motors.hpp"
 #include "systems/config/controller.hpp"
 #include "systems/config/vars.hpp"
-bool IsCharged = false;
 namespace Catapult{
   void catapultmanual(){
     // when holding button, run motor
