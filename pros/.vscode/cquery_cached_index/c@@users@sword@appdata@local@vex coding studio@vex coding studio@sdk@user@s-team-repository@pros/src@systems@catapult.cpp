@@ -26,7 +26,7 @@ namespace Catapult{
       }
       else if(IsCharged){
         IsCharged = false;
-        motor.moveAbsolute(360,100);
+        motor.moveAbsolute(0,100);
       }
       else{
 
