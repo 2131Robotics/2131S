@@ -19,15 +19,15 @@ namespace Catapult{
     //when button gets pressed set to position.
     motor.tarePosition(); // sets current position as zero
     if(ChrgeBtn.changed()){//when the button gets pressed
-      if(IsCharged){// if IsCharged is false, charge it
+      if(!IsCharged){// if IsCharged is false, charge it
         IsCharged = true;
         motor.moveAbsolute(320,100);
       }
-      else if(IsCharged){//if IsCharged is true, fire and move to tarePOSITION (0)
+      else if(IsCharged){//if IsCharged is true, fire and move to tarePosition or zero
         IsCharged = false;
         motor.moveAbsolute(0,100);
       }
-      else{ //Blank telling it to do nothing if the above is not doing anything
+      else{ //Blank telling it the catapult do nothing if the above is not doing anything
 
 
       }
