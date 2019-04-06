@@ -63,7 +63,57 @@ void BackRedNP(){
 }
 /* Parking Match Atons */
 
+void FrontRed(){
+  Drive::ADrive(900);
+  Drive::ADrive(-900);
+  Drive::ATurn(-6000);
+  Drive::ADrive(100);
+  Catapult::Shoot=true;
+  pros::delay(100);
+  Drive::ADrive(500);
+  Drive::ADrive(-400);
+  Drive::ATurn(6000);
+  Drive::ADrive(600);
+  Drive::ATurn(6000);
+  Drive::ADrive(300);
 
+
+}
+
+void FrontBlue(){
+  Drive::ADrive(900);
+  Drive::ADrive(-900);
+  Drive::ATurn(6000);
+  Drive::ADrive(100);
+  Catapult::Shoot=true;
+  pros::delay(100);
+  Drive::ADrive(500);
+  Drive::ADrive(-400);
+  Drive::ATurn(-6000);
+  Drive::ADrive(600);
+  Drive::ATurn(-6000);
+  Drive::ADrive(300);
+}
+
+void BackBlue(){
+  Drive::ADrive(900);
+  Drive::ATurn(3000);
+  Drive::ADrive(-150);
+  Flipper::RotateTo(100);
+  Drive::ATurn(3000);
+  Drive::ASlide(200);
+  Drive::ADrive(300);
+}
+
+void BackRed(){
+  Drive::ADrive(900);
+  Drive::ATurn(-3000);
+  Drive::ADrive(-150);
+  Flipper::RotateTo(100);
+  Drive::ATurn(-3000);
+  Drive::ASlide(200);
+  Drive::ADrive(300);
+}
 
 
 /* Skills Aton */
