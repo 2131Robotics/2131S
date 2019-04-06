@@ -1,14 +1,10 @@
 #include "main.h"
 #include "systems/config/vars.hpp"
+#include "systems/config/motors.hpp"
+#include "systems/config/setup.hpp"
+#include "systems/config/controller.hpp"
 namespace Drive{
   void IsDriveFlippedControll(){
-    // if(DriveToggle.isPressed() && DriveDirConBtnPressed==false){
-    // DriveDirConBtnPressed=true;
-    // DriveDirInverted=!DriveDirInverted;
-    // }
-    // if(DriveToggle.isPressed() && DriveDirConBtnPressed==true){
-    // DriveDirConBtnPressed=false;
-    // }
 
     if(DriveToggle.changed()){ // when the button changes
       if(DriveToggle.isPressed()){ //when it is pressed
@@ -46,10 +42,7 @@ namespace Drive{
     int LeftHorJoy=master_controller.getAnalog(okapi::ControllerAnalog::leftX)*200;
     int RightHorJoy=master_controller.getAnalog(okapi::ControllerAnalog::rightX)*200;
 
-    // LeftVirtJoy=(LeftVirtJoy/127)*100;
-    // RightVirtJoy=(RightVirtJoy/127)*100;
-    // LeftHorJoy=(LeftHorJoy/127)*100;
-    // RightHorJoy=(RightHorJoy/127)*100;
+
 
     if(std::abs(LeftVirtJoy)<5)    LeftVirtJoy=0;
     if(std::abs(RightVirtJoy)<5)    RightVirtJoy=0;
@@ -75,14 +68,7 @@ namespace Drive{
   }
 
   void DriveCont_LockContM(){
-    //drive brake toggle
-    // if(HoldToggle.isPressed() && DriveLockConBtnPressed==false){
-    //   DriveLockConBtnPressed=true;
-    //   DriveLockInverted=!DriveLockInverted;
-    // }
-    // if(HoldToggle.isPressed() && DriveLockConBtnPressed==true){
-    //   DriveLockConBtnPressed=false;
-    // }
+
 
     if(HoldToggle.changed()){ // when the button changes
       if(HoldToggle.isPressed()){ //when it is pressed
@@ -104,10 +90,6 @@ namespace Drive{
       MechDriveRelease();
       ManualMechDriveCont();
     }
-    // if(ControllerM.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){ //place cap
-    //   if(DriveDirInverted){
-    //     setDriveVel(30,30);
-    //   }
-    // }
+
   }
 }

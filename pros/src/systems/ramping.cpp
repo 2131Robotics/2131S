@@ -2,6 +2,8 @@
 #include "systems/ramping.hpp"
 #include "systems/drive.hpp"
 #include "systems/config/motors.hpp"
+#include "systems/config/setup.hpp"
+
 Ramping::Ramping(int CP,int CM,int MaxP,int MinDP,int MinUP){
   //ChangePct,ChangeMsec,MaxPct
   ChangePct=CP;

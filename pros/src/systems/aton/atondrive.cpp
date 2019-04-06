@@ -3,6 +3,8 @@
 #include "systems/drive.hpp"
 #include "systems/aton/atondrive.hpp"
 #include "systems/config/motors.hpp"
+#include "systems/config/setup.hpp"
+
 //------Manual Drive Controll------------//
 namespace Drive{
   //------------Aton Drive Ramping---------------------//
