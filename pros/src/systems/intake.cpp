@@ -17,4 +17,23 @@ namespace Intake{
     }
 
   }
+  void autointake(){
+    if(BtnIn.changed())
+    motor.moveVelocity(600);
+
+
+    else if(BtnOut.changed())
+    motor.moveVelocity(600);
+
+
+    else{
+
+
+
+    }
+
+
+
+
+  }
 }

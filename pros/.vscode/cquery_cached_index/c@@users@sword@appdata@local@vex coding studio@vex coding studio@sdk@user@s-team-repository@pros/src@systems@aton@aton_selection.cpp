@@ -1,5 +1,7 @@
 #include "main.h"
 #include "systems/aton/routine.hpp"
+#include "systems/config/setup.hpp"
+
 
 void PotSelectors(){
   int MainSelectValue = MainAtonSelect.get_value();
