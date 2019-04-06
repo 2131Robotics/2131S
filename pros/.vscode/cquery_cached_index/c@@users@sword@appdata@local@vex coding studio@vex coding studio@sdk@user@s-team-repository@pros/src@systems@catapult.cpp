@@ -1,14 +1,13 @@
 #include "main.h"
 #include "systems/catapult.hpp"
 #include "systems/drive.hpp"
-#include "systems/intake.hpp"
-#include "systems/lift.hpp"
 #include "systems/config/motors.hpp"
 #include "systems/config/controller.hpp"
 #include "systems/config/vars.hpp"
-bool charged = false;
+bool IsCharged = false;
 namespace Catapult{
   void catapultmanual(){
+    // when holding button, run motor
     if (ChrgeBtn.isPressed()) {
       motor.moveVelocity(-100);
     }
@@ -18,17 +17,22 @@ namespace Catapult{
     }
   }
   void AutoCatapult(){
+    //when button gets pressed set to position.
     motor.tarePosition();
     if(ChrgeBtn.isPressed()){
-      if(charged){
-        charged = true;
+      if(IsCharged){
+        IsCharged = true;
         motor.moveAbsolute(320,100);
       }
-      else if(charged){
-        charged = false;
+      else if(IsCharged){
+        IsCharged = false;
         motor.moveAbsolute(360,100);
-        
       }
+      else{
+
+
+      }
+
 
 
     }
