@@ -19,10 +19,10 @@ void PotSelectors(){
     else if(secSelectValue >= 0) BackRedNP();
   }
   else if(MainSelectValue > 775){
-    if(secSelectValue > 3600) FrontRedNP();
-    else if(secSelectValue > 1900) FrontBlueNP();
-    else if(secSelectValue > 450) BackBlueNP();
-    else if(secSelectValue >= 0) BackRedNP();
+    if(secSelectValue > 3600) FrontRed();
+    else if(secSelectValue > 1900) FrontBlue();
+    else if(secSelectValue > 450) BackBlue();
+    else if(secSelectValue >= 0) BackRed();
 
   }
   else if(MainSelectValue > 225){
