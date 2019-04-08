@@ -49,8 +49,8 @@ namespace Drive{
                     void setIntakeVel(int vel){
                       if(vel==0) motor.moveVelocity(0);
                       else motor.moveVelocity(vel);
-                      pros::ADIAnalogIn BallSenseBottom(6);
-                      pros::ADIAnalogIn BallSenseTop(4);
+                      pros::ADIAnalogIn BallSenseBottom(8);
+                      pros::ADIAnalogIn BallSenseTop(7);
                     }
                   }
 

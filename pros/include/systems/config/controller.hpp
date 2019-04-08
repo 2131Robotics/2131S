@@ -26,6 +26,6 @@ namespace Flipper{
   extern okapi::ControllerButton BtnDown;
 }
 namespace Catapult{
-  extern okapi::ControllerButton ChrgeBtn;
+  extern okapi::ControllerButton btnCharge;
 }
 #endif /* end of include guard: CONTROLLER_HPP */
