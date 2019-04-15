@@ -15,8 +15,9 @@ namespace auton{
   namespace Puncher=puncher::auton;
   namespace routines{
     void testing(){
-
-        Drive::drive(12,200,1);
+        Drive::turnEnc(90,150,1);
+        pros::delay(3000);
+        Drive::drive(17,200,1);
         Intake::enable();
         Lift::set_target(200,200,true);
         Drive::driveS(6,150,1);
@@ -25,6 +26,72 @@ namespace auton{
         Intake::disable();
         Flipper::wait();
         Puncher::fire();
+
+    }
+    void RedFront()
+    {
+      Intake::enable();
+      Drive::drive(19);
+      Drive::drive(-17);
+      Drive::turnEnc(-90,200,1);
+      Puncher::fire();
+      Drive::drive(15);
+      Drive::driveS(-10,200,1);
+      Drive::drive(-15);
+      Drive::turnEnc(45,200,1);
+
+    }
+    void BlueFront(){
+      Intake::enable();
+      Drive::drive(19);
+      Drive::drive(-17);
+      Drive::turnEnc(90,200,1);
+      Puncher::fire();
+      Drive::drive(15);
+      Drive::driveS(10);
+      Drive::drive(-15);
+      Drive::turnEnc(-45,200,1);
+
+    }
+    void RedBackMidAndFar(){
+      Intake::enable();
+      Drive::drive(19);
+      Drive::turnEnc(-45,150,1);
+      pros::delay(3000);
+      Puncher::fire();
+    }
+    void BlueBackMidAndFar(){
+Intake::enable();
+Drive::drive(19);
+Drive::turnEnc(60,150,1);
+Puncher::fire();
+pros::delay(400);
+/*Drive::turnEnc(30,100,1);
+Drive::drive(-5);
+Lift::set_target(200,200,true);
+Drive::drive(2);
+Drive::turnEnc(90,100,1);
+Drive::drive(19);
+Lift::set_target(150,200,true);*/
+
+    }
+    void RedFrontMidAndPark(){
+
+    }
+    void BlueFrontMidAndPark(){
+
+    }
+    void RedBackStackAndPark(){
+
+    }
+    void BlueBackStackAndPark(){
+
+    }
+    void RedBackUtlimate(){
+
+    }
+    void BlueBackUltimate(){
+
     }
   }
 }
@@ -136,7 +203,7 @@ namespace auton{
 //           Lift::wait(250);
 
 //           Drive::turnEnc(-176,75,0);
-                    
+
 //           Intake::enable();
 //           // Drive::driveS(-1,50,1);
 //           Lift::set_target(lift::down,lift::vDown,true);
@@ -174,7 +241,7 @@ namespace auton{
 
 //         }
 //         void midCap(){
-          
+
 //         }
 //       }
 //     }
