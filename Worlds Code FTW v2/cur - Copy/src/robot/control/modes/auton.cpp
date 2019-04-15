@@ -3,6 +3,7 @@
 #include "robot/control/systems/drive.hpp"
 #include "robot/control/systems/intake.hpp"
 #include "robot/control/systems/lift.hpp"
+#include "robot/control/systems/flipper.hpp"
 #include "robot/control/systems/puncher.hpp"
 // DriveEndWait=0;
 // TurnEndWait=0;
@@ -13,14 +14,14 @@ namespace auton{
     inAuton=b;
   }
   void Task(void*why){
-    std::uint32_t test=pros::millis();//init delay
     while(1){
       if(inAuton){
         drive::auton::ramping();
         puncher::execute();
 
         intake::execute();
-        lift::execute(80);
+        lift::execute();
+        flipper::execute();
       }
       pros::delay(5);//delay for 5 millis exact
     }

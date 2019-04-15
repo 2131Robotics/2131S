@@ -22,9 +22,11 @@ namespace lift{
   // extern okapi::Motor motor0;
   // extern okapi::Motor motor1;
   extern okapi::Motor motor;
-  extern   okapi::ADIButton CapBump;
+  // extern   okapi::ADIButton CapBump;
 }
-
+namespace flipper{
+    extern okapi::Motor motor;
+}
 namespace intake{
   extern okapi::Motor motor;
   namespace automatic{

@@ -2,19 +2,20 @@
 #include "robot/control/systems/drive.hpp"
 #include "robot/control/systems/intake.hpp"
 #include "robot/control/systems/lift.hpp"
+#include "main.h"
+
 // #include "robot/auton/routines.hpp"
 namespace puncher{
   // pros::Mutex DoubleShotTaskMutex();
-
+  bool Calabrated=false;
   //vars
   Controllers Controller=Controllers::NONE;
-  bool DoubleShot=false;
 
   const int VMove=100;
   const int VStop=0;
 
   int V=VStop;
-  bool Charged=false;
+  bool Charged=true;
 
   //vars FUNCTIONS
   Controllers get_controller(){
@@ -22,12 +23,6 @@ namespace puncher{
   }
   void set_controller(Controllers c){
     Controller=c;
-  }
-  bool get_doubleShot(){
-    return DoubleShot;
-  }
-  void set_doubleShot(bool d){
-    DoubleShot=d;
   }
   int get_v(){
     return V;
@@ -45,9 +40,9 @@ namespace puncher{
   //methods
   namespace OnOffCon{
     //vars
-    const int ReleasedtoCharged=260;//175
-    const int ChargedToReleased=100;//65
-    double Target=0;
+    const int ReleasedtoCharged=100;//not used if started charged
+    const int ChargedToCharged=360*5;//65
+    double Target=ReleasedtoCharged;//running sum;starts up to fix calibration
     bool Run=false;
     bool Enabled=false;
     //vars FUNCTIONS
@@ -75,187 +70,71 @@ namespace puncher{
     //methods
     void execute(){
       if(motor.getPosition()<get_target() && get_run()){//outside of tal
-        set_controller(Controllers::POSITION);
+        set_controller(Controllers::ONOFF);
         // Dir=SGN(Tar-Punchermotor.rotation(vex::rotationUnits::deg));
         set_v(VMove);//set the motor to spin in the correct direction
       }
-      else if(get_controller()==Controllers::POSITION){//if in tar zone and was enabled; fist not enabled
+      else if(get_controller()==Controllers::ONOFF){//if in tar zone and was enabled; fist not enabled
         set_controller(Controllers::NONE);
         set_v(0);
         set_run(false);//stop after it has been hit
       }
     }
   }
-  void Changer(){
+  void positionChanger(){
     // ComRumerFun();
-    if(!get_charged()){//Charging
+    if(!get_charged()){//set up
       OnOffCon::set_targetRel(OnOffCon::ReleasedtoCharged);
       OnOffCon::set_run(true);
       set_charged(true);
     }
-    else if(get_charged()){//Fireing
-      OnOffCon::set_targetRel(OnOffCon::ChargedToReleased);
+    else if(get_charged()){//fire
+      OnOffCon::set_targetRel(OnOffCon::ChargedToCharged);
       OnOffCon::set_run(true);
-      set_charged(false);
-      intake::automatic::balls::set_puncher(false);
-      intake::automatic::balls::set_overEnabled(false);
+    }
+  }
+  void calabrate(){//20 loops
+    const static int tStart=pros::millis();
+    if(pros::millis()>tStart+250){
+      motor.moveVelocity(0);
+      motor.tarePosition();
+      Calabrated=true;
+      OnOffCon::set_run(true);//enable it to reset its self
+      //set target;//target starts at its offset from cal
+      // motor.setLimitPositons(lift::limitMin,lift::limitMax);
+    }
+    else {
+      motor.moveVelocity(-50);
     }
   }
   void execute(){
-    OnOffCon::execute();
-    if(get_controller()==Controllers::POSITION){
-      motor.moveVelocity(get_v());
-    }
-    else if(get_controller()==Controllers::NONE){
-      motor.moveVelocity(VStop);
+    if(!Calabrated) calabrate();
+    else{
+      OnOffCon::execute();
+      if(get_controller()==Controllers::ONOFF){
+        motor.moveVelocity(get_v());
+      }
+      else if(get_controller()==Controllers::NONE){
+        motor.moveVelocity(VStop);
+      }
     }
   }
 
   namespace control{
     // okapi::Motor::brakeMode initBrakeMode = okapi::Motor::brakeMode::coast;
-
-    int timeDelta(int &timer){// move to utils
-      int delta=pros::millis()-timer;
-      timer=pros::millis();
-      return delta;
-    }
-
-    // void doubleShotFront(void* why){
-    //   puncher::auton::charge(true);
-    //   if(!get_doubleShot())  return;
-    //   puncher::auton::fire(true);
-    //   if(!get_doubleShot())  return;
-    //   puncher::auton::charge(false);
-    //   lift::set_target(lift::punFront1,lift::vMove,true);
-    //   if(!get_doubleShot())  return;
-    //
-    //   lift::auton::wait();//wait for the lift
-    //   int timerInit=pros::millis();
-    //   while(!intake::automatic::balls::get_puncherActual() && timeDelta(timerInit)<500){
-    //     pros::delay(5);
-    //   }
-    //   pros::delay(150);
-    //   puncher::auton::wait();//wait for the puncher
-    //
-    //   if(!get_doubleShot())  return;
-    //   puncher::auton::fire(true);
-    //   if(!get_doubleShot())  return;
-    //   lift::set_target(lift::down,lift::vDown,true);
-    //
-    //   set_doubleShot(false);
-    //   drive::set_brakeMode(initBrakeMode);
-    //   lift::set_target(lift::down,lift::vDown);
-    // }
-    void doubleShotFront(void* why){
-      puncher::auton::charge(false);
-      lift::set_target(lift::punFront1,50,true);
-      lift::wait();
-      puncher::auton::wait();
-      if(!get_doubleShot())  return;
-      puncher::auton::fire(true);
-      if(!get_doubleShot())  return;
-      lift::set_target(lift::punFront2,50,true);
-      puncher::auton::charge(false);
-      int timerInit=pros::millis();
-      while(!intake::automatic::balls::get_puncherActual() && timeDelta(timerInit)<500){
-        pros::delay(5);
-      }
-      lift::wait();//wait for the lift
-      pros::delay(100);//ball wait
-      if(!get_doubleShot())  return;
-      puncher::auton::fire(true);
-      if(!get_doubleShot())  return;
-      //deinit
-      pros::delay(50);//just in case
-      lift::set_target(lift::down,lift::vMove);
-
-      // drive::set_brakeMode(initBrakeMode);
-      set_doubleShot(false);
-    }
-
-    void doubleShotBack(void* why){
-      puncher::auton::charge(false);
-      lift::set_target(lift::punBack1+10,50,true);
-      lift::wait();
-      if(!get_doubleShot())  return;
-      puncher::auton::fire(true);
-      if(!get_doubleShot())  return;
-      puncher::auton::charge(false);
-      lift::set_target(lift::punBack2+60,50);
-      lift::wait();//wait for the lift
-      int timerInit=pros::millis();
-      while(!intake::automatic::balls::get_puncherActual() && timeDelta(timerInit)<500){
-        pros::delay(5);
-      }
-      pros::delay(100);//ball wait
-      if(!get_doubleShot())  return;
-      puncher::auton::fire(true);
-      if(!get_doubleShot())  return;
-      //deinit
-      pros::delay(50);//just in case
-      lift::set_target(lift::down,lift::vMove);
-
-      // drive::set_brakeMode(initBrakeMode);
-      set_doubleShot(false);
-    }
     void charge(){
       if(btnCharge.changed()){
         if(btnCharge.isPressed()){//inti
           // initBrakeMode = drive::get_brakeMode();
-          intake::automatic::enable();
+          // intake::automatic::enable();
           // drive::set_brakeMode(okapi::Motor::brakeMode::hold);
-          set_doubleShot(true);
-          pros::Task DoubleShotTask (doubleShotFront,(void*)"why", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DoubleShotTask");
-          // Changer();
+          positionChanger();
         }
         else{//deInit
-          set_doubleShot(false);
           // drive::set_brakeMode(initBrakeMode);
-          lift::set_target(lift::down,lift::vDown);
         }
       }
       else if(btnCharge.isPressed()){//hold
-
-      }
-      else{
-
-      }
-    }
-    void doubleBack(){
-      if(btnDoubleBack.changed()){
-        if(btnDoubleBack.isPressed()){//inti
-          // initBrakeMode = drive::get_brakeMode();
-          intake::automatic::enable();
-          // drive::set_brakeMode(okapi::Motor::brakeMode::hold);
-          set_doubleShot(true);
-          pros::Task DoubleShotTask (doubleShotBack,(void*)"why", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DoubleShotTask");
-          // Changer();
-        }
-        else{//deInit
-
-        }
-      }
-      else if(btnDoubleBack.isPressed()){//hold
-
-      }
-      else{
-
-      }
-    }
-    void doubleFront(){
-      if(btnDoubleFront.changed()){
-        if(btnDoubleFront.isPressed()){//inti
-          // initBrakeMode = drive::get_brakeMode();
-          intake::automatic::enable();
-          // drive::set_brakeMode(okapi::Motor::brakeMode::hold);
-          set_doubleShot(true);
-          pros::Task DoubleShotTask (doubleShotFront,(void*)"why", TASK_PRIORITY_DEFAULT,TASK_STACK_DEPTH_DEFAULT, "DoubleShotTask");
-        }
-        else{//deInit
-
-        }
-      }
-      else if(btnDoubleFront.isPressed()){//hold
 
       }
       else{
@@ -271,15 +150,15 @@ namespace puncher{
       pros::delay(w);
     }
     void charge(bool w){
-      if(!get_charged())  Changer();//charge
+      if(!get_charged())  positionChanger();//charge
       if(w)  wait();
     }
-    void fire(bool w){
+    void fire(int wait){
       auton::charge(false);//verify charghed dont wait
-      Changer();//fire
-      if(w)  wait();
-      intake::automatic::balls::set_puncher(false);
-      intake::automatic::balls::set_overEnabled(false);
+      positionChanger();//fire
+      pros::delay(wait);
+      // intake::automatic::balls::set_puncher(false);
+      // intake::automatic::balls::set_overEnabled(false);
     }
   }
 }

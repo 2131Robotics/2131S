@@ -1,7 +1,6 @@
-#ifndef LIFT_HPP
-#define LIFT_HPP
+#pragma once
 
-namespace lift{
+namespace flipper{
   //vars
   enum class Controllers{MANUAL,POSITION,CALABRATE,NONE};
 
@@ -47,12 +46,9 @@ namespace lift{
     namespace caps{
       void manual();
     } // namespace caps
-    void position();
     void calabrate();
   }
   inline namespace auton{
     void wait(int w=0);
   }
 }
-
-#endif /* end of include guard: LIFT_HPP */

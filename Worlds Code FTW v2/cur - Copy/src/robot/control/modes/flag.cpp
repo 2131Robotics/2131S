@@ -4,6 +4,7 @@
 #include "robot/control/systems/drive.hpp"
 #include "robot/control/systems/intake.hpp"
 #include "robot/control/systems/lift.hpp"
+#include "robot/control/systems/flipper.hpp"
 #include "robot/control/systems/puncher.hpp"
 
 namespace flag{
@@ -11,16 +12,20 @@ namespace flag{
     drive::control::manual();
     drive::control::hold();
 
-    intake::control::combo();
+    // intake::control::combo();
     intake::control::feedIn();
     intake::control::feedOut();
-    intake::control::toggle();
+    // intake::control::toggle();
 
-    lift::control::calabrate();
+    lift::control::flag::manual();
+    // lift::control::calabrate();
+
+    flipper::control::flag::manual();
+    flipper::control::calabrate();
 
     puncher::control::charge();
-    puncher::control::doubleBack();
-    puncher::control::doubleFront();
+    // puncher::control::doubleBack();
+    // puncher::control::doubleFront();
   }
   void init(){
     drive::set_inverted(false);

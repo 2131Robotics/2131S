@@ -4,6 +4,7 @@
 #include "robot/control/systems/drive.hpp"
 #include "robot/control/systems/intake.hpp"
 #include "robot/control/systems/lift.hpp"
+#include "robot/control/systems/flipper.hpp"
 #include "robot/control/systems/puncher.hpp"
 
 namespace caps{
@@ -13,16 +14,18 @@ namespace caps{
 
     intake::control::feedIn();
     intake::control::feedOut();
-    intake::control::toggle();
+    // intake::control::toggle();
 
-    lift::control::manual();
-    lift::control::position();
+    lift::control::caps::manual();
     lift::control::calabrate();
+    lift::control::position();
+
+    flipper::control::caps::manual();
 
     // puncher::control::
   }
   void init(){
-    intake::automatic::disable();
+    // intake::automatic::disable();
     lift::set_target(lift::down,lift::vDown,true);
     drive::set_inverted(true);
     controllerMaster.setText(1,5,"CAPS");

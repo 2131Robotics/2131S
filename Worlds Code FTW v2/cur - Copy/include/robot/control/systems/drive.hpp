@@ -31,7 +31,7 @@ namespace drive{
     void DIS(int l,int r);//drive instentaniouly
 
     void ramping();//sets drive motors to spin
-    bool isSettled();
+    bool isSettled(int v=0);
     void drive(double tar, int vel=200, int EndWait=1,bool abs=false); // assumes velocity start = end = 0
     void driveRecon(int Pct,int Wait,int EndWait=250);
     void driveS(double tar,int vel=200,int EndWait=1,int Correction=1);

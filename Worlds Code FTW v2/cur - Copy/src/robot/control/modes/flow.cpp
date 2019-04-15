@@ -8,6 +8,7 @@
 #include "robot/control/systems/drive.hpp"
 #include "robot/control/systems/intake.hpp"
 #include "robot/control/systems/lift.hpp"
+#include "robot/control/systems/flipper.hpp"
 #include "robot/control/systems/puncher.hpp"
 
 namespace flow{
@@ -76,11 +77,12 @@ namespace flow{
     drive::execute();
     intake::execute();
     lift::execute();
+    flipper::execute();
     puncher::execute();
   }
   void user(){
     drive::feedback::rumble();
-    lift::feedback::rumble();
+    // lift::feedback::rumble();
     control::modeTog();
 
     switch (get_mode()) {

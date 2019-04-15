@@ -27,6 +27,11 @@ namespace lift{
   extern okapi::ControllerButton btnPosTog;
   extern okapi::ControllerButton btnCal;
 }
+namespace flipper{
+  extern okapi::ControllerButton btnUp;
+  extern okapi::ControllerButton btnDown;
+  extern okapi::ControllerButton btnCal;
+}
 namespace puncher{
   extern okapi::ControllerButton btnCharge;
   extern okapi::ControllerButton btnDoubleBack;

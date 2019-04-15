@@ -114,56 +114,11 @@ namespace drive {
     }
   }  // namespace control
   namespace auton {
-    // namespace Ramp{
-    //   void Calc(){
-    //     Ya.Calculate();
-    //     Xa.Calculate();
-    //     Za.Calculate();
-    //
-    //     Yv.Calculate(Ya.output());//ramp yv by ya's output
-    //     Xv.Calculate(Xv.output());
-    //     Zv.Calculate(Za.output());
-    //
-    //     arcade(Yv.output(), Xa.output(), Zv.output());//output velocitys to
-    //     motor
-    //   }
-    //   void move(double y,double x,int maxV=200){//y=forward distance
-    //   inches,x=forward distance inches,z=yaw=turnRight degrees
-    //     int yMaxV=y*maxV/(std::abs(y)+std::abs(x));//relitive y max velocity
-    //     to hit target at the same time int
-    //     xMaxV=x*maxV/(std::abs(y)+std::abs(x));//relitive x max velocity to
-    //     hit target at the same time
-    //
-    //     Yv.set_limits(std::abs(yMaxV), -std::abs(yMaxV));//limit to max
-    //     velocitys Xv.set_limits(std::abs(xMaxV), -std::abs(xMaxV));//limit to
-    //     max velocitys
-    //
-    //     Ya.Request(25*SGN(y));//accelerate in target direction
-    //     Xa.Request(25*SGN(x));//accelerate in target direction
-    //     double RampDistance=0;
-    //     while(y-yactural)
-    //   }
-    // }
-    // int maxRPM=200;
-    // double Width=11.5;//distance between left to right wheels
-    // double Length=8;//distance between front to back wheels
-    // double WheelCir=4*M_PI;
-    //
-    // double forwardSum=0;
-    // double strafeSum=0;
-    // double yawSum=0;
-
-    // void drive(double in){
-    //   front_left_motor.moveRelative(in,200);
-    //   back_left_motor.moveRelative(in,200);
-    //   front_right_motor.moveRelative(in,200);
-    //   back_right_motor.moveRelative(in,200);
-    // }
-    bool isSettled() {
-      if (std::abs(front_left_motor.getActualVelocity()) > 0) return false;
-      if (std::abs(back_left_motor.getActualVelocity()) > 0) return false;
-      if (std::abs(front_right_motor.getActualVelocity()) > 0) return false;
-      if (std::abs(back_right_motor.getActualVelocity()) > 0) return false;
+    bool isSettled(int v) {
+      if (std::abs(front_left_motor.getActualVelocity()) > v) return false;
+      if (std::abs(back_left_motor.getActualVelocity()) > v) return false;
+      if (std::abs(front_right_motor.getActualVelocity()) > v) return false;
+      if (std::abs(back_right_motor.getActualVelocity()) > v) return false;
       return true;
     }
     void ramping() {  // sets drive motors to spin
@@ -262,8 +217,6 @@ namespace drive {
         }
       }
 
-
-
       if (EndWait > 0) {  // default; set stop, wait for stop, wait for
                                 // endwait;    StopWait
         // QDRS();//quick drive ramp stop
@@ -305,7 +258,7 @@ namespace drive {
       back_right_motor.tarePosition();
 
       while (std::abs(back_right_motor.getPosition()) < std::abs(totalDeg)) {  // max error is 1/30 of an inch;
-        DRS(velocity, velocity);
+        DRS(velocity, velocity
         pros::delay(5);  // wait for the ramp task to execute, free up PU,wait
                          // for distance to be travled;
         // need to sync with ramping task
@@ -352,13 +305,9 @@ namespace drive {
       // double
       // ZActual=(-front_left_motor.getPosition()+front_right_motor.getPosition()-back_left_motor.getPosition()+back_right_motor.getPosition())*(WheelCir/92)*180/M_PI;
       // //what the robots currant z is
-      while (std::abs((-front_left_motor.getPosition() +
-                       front_right_motor.getPosition() -
-                       back_left_motor.getPosition() +
-                       back_right_motor.getPosition()) /
-                      360) *
-                 (WheelCir / (39.5)) * 180 / M_PI <
-             std::abs(deg)) {
+      while (std::abs((-front_left_motor.getPosition() + front_right_motor.getPosition() - back_left_motor.getPosition() + back_right_motor.getPosition()) /
+                      360) * (WheelCir / (4.5+5.75)) * 180 / M_PI < std::abs(deg))
+      {
         DIN(LPct, -RPct);
         pros::delay(5);
         // ZActual=(; //what the robots currant z is
@@ -366,63 +315,5 @@ namespace drive {
       DIN(0, 0);
       pros::delay(endwait);
     }
-          // using namespace okapi::literals;
-
-    // void wait(int endWait,okapi::QTime timeOut=-1_ms){
-    //   okapi::Timer timeout;
-    //   timeout.placeMark();
-    //   timeout.getDtFromMark();
-    //   using namespace okapi;
-    //   okapi::QTime(timeOut);
-      
-    //   while (!isSettled() && ((timeOut>0_ms) ? timeout.getDtFromMark() < timeOut : true)) {
-    //       pros::delay(5);
-    //     }
-    //     pros::delay(endWait);
-    // }
-    // namespace good{
-    //   void calcDis(double forward, double strafe, double yaw){
-    //     forwardSum+=forward;
-    //     strafeSum+=strafe;
-    //     yawSum+=yaw;
-    //
-    //     front_left_motor.set_target((forward-strafe-((Width+Length)/2)*(yaw*M_PI/180))/WheelCir);
-    //     back_left_motor.set_target((forward+strafe+((Width+Length)/2)*(yaw*M_PI/180))/WheelCir);
-    //     front_right_motor.set_target((forward+strafe-((Width+Length)/2)*(yaw*M_PI/180))/WheelCir);
-    //     back_right_motor.set_target((forward-strafe+((Width+Length)/2)*(yaw*M_PI/180))/WheelCir);
-    //   }
-    //   void calcVelRatio(){
-    //     double maxTargetDelta=std::max(front_left_motor.get_targetDelta(),
-    //     std::max(back_left_motor.get_targetDelta(),
-    //     std::max(front_right_motor.get_targetDelta(),
-    //     back_right_motor.get_targetDelta())));
-    //
-    //     front_left_motor.set_RPM(front_left_motor.get_targetDelta()*maxRPM/maxTargetDelta);
-    //     back_left_motor.set_RPM(back_left_motor.get_targetDelta()*maxRPM/maxTargetDelta);
-    //     front_right_motor.set_RPM(front_right_motor.get_targetDelta()*maxRPM/maxTargetDelta);
-    //     back_right_motor.set_RPM(back_right_motor.get_targetDelta()*maxRPM/maxTargetDelta);
-    //   }
-    //   void Absolute(double forward, double strafe, double yaw){
-    //     calcDis(forward, strafe, yaw);
-    //     calcVelRatio();
-    //
-    //     front_left_motor.moveAbsolute(front_left_motor.get_target(),front_left_motor.get_RPM());
-    //     back_left_motor.moveAbsolute(back_left_motor.get_target(),back_left_motor.get_RPM());
-    //     front_right_motor.moveAbsolute(front_right_motor.get_target(),front_right_motor.get_RPM());
-    //     back_right_motor.moveAbsolute(back_right_motor.get_target(),back_right_motor.get_RPM());
-    //   }
-    //   void AbsolutelyRelative(double forward, double strafe, double yaw){
-    //     forward+=forwardSum;
-    //     strafe+=strafeSum;
-    //     yaw+=yawSum;
-    //     calcDis(forward, strafe, yaw);
-    //     calcVelRatio();
-    //
-    //     front_left_motor.moveAbsolute(front_left_motor.get_target(),front_left_motor.get_RPM());
-    //     back_left_motor.moveAbsolute(back_left_motor.get_target(),back_left_motor.get_RPM());
-    //     front_right_motor.moveAbsolute(front_right_motor.get_target(),front_right_motor.get_RPM());
-    //     back_right_motor.moveAbsolute(back_right_motor.get_target(),back_right_motor.get_RPM());
-    //   }
-    // }
   }  // namespace auton
 }  // namespace drive

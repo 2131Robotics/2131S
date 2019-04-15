@@ -8,7 +8,7 @@ extern const int vOut;
 extern const int vStop;
 extern const int vOver;
 
-  enum class Controllers{MANUAL,AUTO,NONE};//add to motors class
+  enum class Controllers{MANUAL/*,AUTO*/,NONE};//add to motors class
 
   //vars FUNCTIONS
   // Controllers get_controller();
@@ -23,36 +23,36 @@ extern const int vOver;
     //vars
     //vars FUNCTIONS
     //methods
-    void combo();
+    // void combo();
     void feedOut();
     void feedIn();
-    void toggle();
+    // void toggle();
     void execute();
   }
-  namespace automatic{
-    //vars
-    enum Modes{FAST,SLOW,OUT,NONE};
-    //vars FUNCTIONS
-    Modes get_mode();//return current intake mode
-    namespace balls {
-      //vars
-      //vars FUNCTIONS
-      bool get_puncherActual();
-      bool get_puncher();
-      void set_puncher(bool p);
-      bool get_over();
-      // void set_over(bool o);
-      void set_overEnabled(bool e);
-      bool get_feed();
-      //methods
-    }
+  // namespace automatic{
+  //   //vars
+  //   enum Modes{FAST,SLOW,OUT,NONE};
+  //   //vars FUNCTIONS
+  //   Modes get_mode();//return current intake mode
+  //   namespace balls {
+  //     //vars
+  //     //vars FUNCTIONS
+  //     bool get_puncherActual();
+  //     bool get_puncher();
+  //     void set_puncher(bool p);
+  //     bool get_over();
+  //     // void set_over(bool o);
+  //     void set_overEnabled(bool e);
+  //     bool get_feed();
+  //     //methods
+  //   }
 
     //methods
-    void toggle();
-    void enable();
-    void disable();
+    // void toggle();
+    // void enable();
+    // void disable();
 
-    void execute();
-  }
+    // void execute();
+  // }
 }
 #endif /* end of include guard: INTAKE_HPP */

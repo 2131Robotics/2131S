@@ -2,7 +2,7 @@
 #define ROUTINES_HPP
 namespace auton{
   namespace routines{
-    void doubleShotFront(void* test);
+    void testing();
     namespace red{
       namespace front{
         void midBoth();
