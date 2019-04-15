@@ -266,7 +266,7 @@ namespace drive {
 
       if (EndWait == -1) {  //                                                          Junction
         // only use if another drive command fallows
-      } 
+      }
       else if (EndWait > 0) {  // default; set stop, wait for stop, wait for
                                  // endwait;    StopWait
         // QDRS();//quick drive ramp stop
@@ -275,7 +275,7 @@ namespace drive {
           pros::delay(5);
         }
         pros::delay(EndWait);
-      } 
+      }
       else {  //>=0,!=-1; set stop dont wait; Stop
         DRS(0, 0);
       }
@@ -306,7 +306,7 @@ namespace drive {
       // ZActual=(-front_left_motor.getPosition()+front_right_motor.getPosition()-back_left_motor.getPosition()+back_right_motor.getPosition())*(WheelCir/92)*180/M_PI;
       // //what the robots currant z is
       while (std::abs((-front_left_motor.getPosition() + front_right_motor.getPosition() - back_left_motor.getPosition() + back_right_motor.getPosition()) /
-                      360) * (WheelCir / (4.5+5.75)) * 180 / M_PI < std::abs(deg))
+                      360) * (WheelCir / (40)) * 180 / M_PI < std::abs(deg))
       {
         DIN(LPct, -RPct);
         pros::delay(5);

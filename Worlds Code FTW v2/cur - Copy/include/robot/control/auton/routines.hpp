@@ -3,40 +3,16 @@
 namespace auton{
   namespace routines{
     void testing();
-    namespace red{
-      namespace front{
-        void midBoth();
-        void midHold();
-        void midTop();
-        void midBottom();
-        void cloFar();
-      }
-      namespace back{
-        void farPark();
-        void farCap();
-        void farAll();
-        void midCap();
-      }
-    }
-    namespace blue{
-      namespace front{
-        void midBoth();
-        void midHold();
-        void midTop();
-        void midBottom();
-        void cloFar();
-      }
-      namespace back{
-        void farPark();
-        void farCap();
-        void farAll();
-        void midCap();
-      }
-    }
-    void skills();
-    void testR();
-    void testB();
-    void defaultSelection();
+    void  RedFront();
+    void BlueFront();
+    void RedBackMidAndFar();
+    void BlueBackMidAndFar();
+    void RedFrontMidAndPark();
+    void BlueFrontMidAndPark();
+    void RedBackStackAndPark();
+    void BlueBackStackAndPark();
+    void RedBackUtlimate();
+    void BlueBackUltimate();
   }
 }
 #endif /* end of include guard: ROUTINES_HPP */
