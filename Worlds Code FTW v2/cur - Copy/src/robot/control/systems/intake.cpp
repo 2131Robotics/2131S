@@ -203,9 +203,13 @@ namespace automatic{
     if (only.get_value() < onlyBallTal)
     {
       onlyBall = true;
+              // std::cout << "intake ball yes"<<std::endl;
+
     }
     else
       onlyBall = false;
+                    // std::cout << "intake ball no "<<std::endl;
+
   }
   } // namespace balls
   // methods
