@@ -31,10 +31,7 @@ namespace intake{
   extern okapi::Motor motor;
   namespace automatic{
     namespace balls{
-      extern pros::ADILineSensor puncher;
-      extern pros::ADILineSensor over;
-      extern pros::ADILineSensor top;
-      extern pros::ADILineSensor bottom;
+      extern pros::ADILineSensor only;
     }
   }
 }

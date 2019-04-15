@@ -10,7 +10,6 @@ namespace flipper{
   // extern const double punBack1;//back first
   // extern const double punBack2;//back second
 
-  extern const double down;
   extern const double up;
   extern const double limitMin;
   extern const double limitMax;

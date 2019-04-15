@@ -15,7 +15,7 @@ namespace flag{
     // intake::control::combo();
     intake::control::feedIn();
     intake::control::feedOut();
-    // intake::control::toggle();
+    intake::control::toggle();
 
     lift::control::flag::manual();
     // lift::control::calabrate();
@@ -30,6 +30,7 @@ namespace flag{
   void init(){
     drive::set_inverted(false);
     lift::set_target(lift::down,lift::vDown,true);
+    flipper::set_target(flipper::up,flipper::vUp,true);
     controllerMaster.setText(1,5,"FLAG");
     flow::set_mode(flow::Modes::FLAG);
   }

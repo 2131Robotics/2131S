@@ -17,20 +17,15 @@ namespace auton{
     void testing(){
 
         Drive::drive(12,200,1);
-
+        Intake::enable();
         Lift::set_target(200,200,true);
         Drive::driveS(6,150,1);
 
-        Flipper::set_target(-200,200,true);
+        Flipper::set_target(flipper::limitMin,100,true);
+        Intake::disable();
         Flipper::wait();
         Puncher::fire();
-        
-
     }
-  
-  
-  
-  
   }
 }
 //     void doubleShotFront(){

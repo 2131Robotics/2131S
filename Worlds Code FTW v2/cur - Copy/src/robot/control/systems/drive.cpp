@@ -258,7 +258,7 @@ namespace drive {
       back_right_motor.tarePosition();
 
       while (std::abs(back_right_motor.getPosition()) < std::abs(totalDeg)) {  // max error is 1/30 of an inch;
-        DRS(velocity, velocity
+        DRS(velocity, velocity);
         pros::delay(5);  // wait for the ramp task to execute, free up PU,wait
                          // for distance to be travled;
         // need to sync with ramping task

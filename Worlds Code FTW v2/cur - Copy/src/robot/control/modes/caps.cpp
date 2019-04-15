@@ -26,7 +26,8 @@ namespace caps{
   }
   void init(){
     // intake::automatic::disable();
-    lift::set_target(lift::down,lift::vDown,true);
+    flipper::set_target(flipper::up,flipper::vUp,true);
+    // lift::set_target(lift::down,lift::vDown,true);
     drive::set_inverted(true);
     controllerMaster.setText(1,5,"CAPS");
     flow::set_mode(flow::Modes::CAPS);

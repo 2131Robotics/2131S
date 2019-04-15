@@ -16,8 +16,8 @@ void opcontrol() {
   while (1) {
     flow::user();
     pros::delay(20);
-    static int loop;
-    loop++;
-    std::cout<<"user loop: "<<loop<<std::endl;
+    // static int loop;
+    // loop++;
+    // std::cout<<"user loop: "<<loop<<std::endl;
   }
 }

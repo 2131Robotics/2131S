@@ -12,10 +12,10 @@ namespace drive{
   //   front_right_motor,
   //   back_right_motor,
   //   4*M_PI,11.5,8);
-  Ramping LeftN (1.75,5,200,-200);
-  Ramping RightN(1.75,5,200,-200);
-  Ramping LeftS (1.75,5,200,-200);
-  Ramping RightS(1.75,5,200,-200);
+  Ramping LeftN (1,4,200,-200);
+  Ramping RightN(1,4,200,-200);
+  Ramping LeftS (1,4,200,-200);
+  Ramping RightS(1,4,200,-200);
 }
 namespace puncher{
   okapi::Motor motor(13,true,okapi::AbstractMotor::gearset::red,okapi::AbstractMotor::encoderUnits::degrees);
@@ -28,12 +28,9 @@ namespace flipper{
 }
 namespace intake{
   okapi::Motor motor(2,false,okapi::AbstractMotor::gearset::green,okapi::AbstractMotor::encoderUnits::degrees);
-  // namespace automatic{
-  //   namespace balls{
-  //     pros::ADIAnalogIn puncher(1);
-  //     pros::ADIAnalogIn over(2);
-  //     pros::ADIAnalogIn top(3);
-  //     pros::ADIAnalogIn bottom(4);
-  //   }
-  // }
+  namespace automatic{
+    namespace balls{
+      pros::ADIAnalogIn only(8);
+    }
+  }
 }

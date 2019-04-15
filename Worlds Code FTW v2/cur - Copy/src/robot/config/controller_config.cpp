@@ -13,7 +13,7 @@ namespace intake{
   // okapi::ControllerButton btnCombo = controllerMaster[okapi::ControllerDigital::R2];
   okapi::ControllerButton btnIn = controllerMaster[okapi::ControllerDigital::R1];
   okapi::ControllerButton btnOut = controllerMaster[okapi::ControllerDigital::R2];
-  // okapi::ControllerButton btnTog = controllerMaster[okapi::ControllerDigital::A];
+  okapi::ControllerButton btnTog = controllerMaster[okapi::ControllerDigital::A];
 }
 namespace lift{
   okapi::ControllerButton btnUp = controllerMaster[okapi::ControllerDigital::right];
