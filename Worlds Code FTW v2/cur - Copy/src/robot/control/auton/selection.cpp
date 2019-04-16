@@ -87,11 +87,11 @@ namespace auton{
         else if(col==1) {}
         else if(col==2) {}
         else if(col==3) {}
-        else if(col==4) {routines::testing();} //workspace
+        else if(col==4) {routines::BlueBackStackAndPark();} //workspace
       }
       else if(row==3){
         if(col==0)      {routines::BlueBackMidAndFar();}
-        else if(col==1) {}
+        else if(col==1) {routines::BlueBackStackAndPark();}
         else if(col==2) {}
         else if(col==3) {}
         else if(col==4) {}
