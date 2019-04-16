@@ -20,7 +20,7 @@ void systemInit() {  // custom robot init dont trust the reliability of
 }
 void initialize() {
   auton::selection::screenInit();
-
+puncher::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
   lift::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::hold);
   intake::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
   flipper::motor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);

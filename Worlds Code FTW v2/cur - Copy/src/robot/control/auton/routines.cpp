@@ -54,11 +54,24 @@ namespace auton{
 
     }
     void RedBackMidAndFar(){
-      Intake::enable();
+
       Drive::drive(19);
-      Drive::turnEnc(-45,150,1);
-      pros::delay(3000);
+      Drive::turnEnc(-61,150,1);
       Puncher::fire();
+      Intake::enable();
+      pros::delay(500);
+      Drive::turnEnc(61,150,1);
+      Drive::drive(-3);
+      Drive::driveS(9);
+      Drive::drive(2.5);
+      Flipper::set_target(flipper::limitMin,100,true);
+      pros::delay(400);
+      Intake::disable();
+      Drive::drive(-3);
+      Flipper::set_target(flipper::limitMax,100,true);
+      Drive::turnEnc(-70,150,1);
+      Puncher::fire();
+      Intake::enable();
     }
     void BlueBackMidAndFar(){
 Intake::enable();
@@ -85,7 +98,21 @@ Puncher::fire();
 
     }
     void RedBackStackAndPark(){
-
+      Drive::drive(-4);
+      Drive::turnEnc(30,150,1);
+      Drive::drive(-17);
+      Lift::set_target(300);
+      pros::delay(200);
+      Drive::drive(6);
+      Drive::turnEnc(28,100,1);
+      Drive::drive(12);
+      Drive::driveRecon(100, 300);
+      Lift::set_target(575);
+      pros::delay(400);
+      Drive::drive(-10);
+      Lift::set_target(0);
+      Drive::turnEnc(113.5,150,1);
+      Puncher::fire();
     }
     void BlueBackStackAndPark(){
       Drive::drive(-4);
@@ -97,10 +124,13 @@ Puncher::fire();
       Drive::drive(6);
       Drive::turnEnc(28,100,1);
       Drive::drive(12);
+      Drive::driveRecon(100, 300);
       Lift::set_target(575);
       pros::delay(400);
       Drive::drive(-10);
       Lift::set_target(0);
+      Drive::turnEnc(-113.5,150,1);
+      Puncher::fire();
     }
     void RedBackUtlimate(){
 
