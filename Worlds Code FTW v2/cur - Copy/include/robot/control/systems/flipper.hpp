@@ -45,6 +45,7 @@ namespace flipper{
     namespace caps{
       void manual();
     } // namespace caps
+    void position();
     void calabrate();
   }
   inline namespace auton{

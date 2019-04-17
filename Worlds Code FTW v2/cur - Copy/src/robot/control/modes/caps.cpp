@@ -12,15 +12,18 @@ namespace caps{
     drive::control::manual();
     drive::control::hold();
 
-    intake::control::feedIn();
-    intake::control::feedOut();
+    // intake::control::feedIn();
+    // intake::control::feedOut();
     // intake::control::toggle();
+    intake::control::combo();
+
 
     lift::control::caps::manual();
     lift::control::calabrate();
     lift::control::position();
 
     flipper::control::caps::manual();
+    flipper::control::position();
 
     // puncher::control::
   }

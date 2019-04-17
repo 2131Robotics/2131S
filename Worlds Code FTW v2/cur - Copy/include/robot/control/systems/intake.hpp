@@ -23,7 +23,7 @@ extern const int vOver;
     //vars
     //vars FUNCTIONS
     //methods
-    // void combo();
+    void combo();
     void feedOut();
     void feedIn();
     void toggle();

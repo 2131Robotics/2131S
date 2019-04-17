@@ -37,44 +37,44 @@ void execute(){
 }
 namespace control
 {
-  okapi::Timer t;
-  // void combo()
-  // {
-  //   using namespace okapi::literals;
+  void combo()
+  {
+    static okapi::Timer t;
+    using namespace okapi::literals;
 
-  //   if (btnCombo.changed())
-  //   {
-  //     if (btnCombo.isPressed())
-  //     { // init
-  //       // init time; used to measure delta time
-  //       t.placeMark(); // log this time;
-  //     }
-  //     else
-  //     { // deinit
-  //       if (t.getDtFromMark() < 200_ms)
-  //       { // short press
-  //         set_controller(Controllers::AUTO);
-  //         automatic::toggle();
-  //       }
-  //       else
-  //       { // long press
-  //         set_controller(Controllers::NONE);
-  //         set_v(vStop);
-  //       }
-  //     }
-  //   }
-  //   else if (btnCombo.isPressed())
-  //   { // hold
-  //     if (t.getDtFromMark() > 200_ms)
-  //     {
-  //       set_controller(Controllers::MANUAL);
-  //       set_v(vOut);
-  //     }
-  //   }
-  //   else
-  //   { // released
-  //   }
-  // }
+    if (btnCombo.changed())
+    {
+      if (btnCombo.isPressed())
+      { // init
+        // init time; used to measure delta time
+        t.placeMark(); // log this time;
+      }
+      else
+      { // deinit
+        if (t.getDtFromMark() < 200_ms)
+        { // short press
+          set_controller(Controllers::AUTO);
+          automatic::toggle();
+        }
+        else
+        { // long press
+          set_controller(Controllers::NONE);
+          set_v(vStop);
+        }
+      }
+    }
+    else if (btnCombo.isPressed())
+    { // hold
+      if (t.getDtFromMark() > 200_ms)
+      {
+        set_controller(Controllers::MANUAL);
+        set_v(vOut);
+      }
+    }
+    else
+    { // released
+    }
+  }
 void feedOut()
 {
   static bool pressedWas;

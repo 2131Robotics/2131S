@@ -50,13 +50,13 @@ namespace auton{
 
     int row;//if nothing is selected run this
     int col;//if nothing is selected run this
-    std::string ConHeaders[4]={"RF","RB","BB","BF"};
-    std::string RowHeaders[4]={"F","B","B","F"};
+    std::string ConHeaders[4]={"RF","BF","RB","BB"};
+    std::string RowHeaders[4]={"F","F","B","B"};
     std::string routines[4][5]={
-      {"Red Front","","","",""}, /*first is over written by header*//*both->RF*/
-      {"Blue Front","","","",""}, /*first is over written by header*//*both->RB*/
-      {"Red Back Mid&Far","","","","def"}, /*first is over written by header*//*both->BB*/
-      {"Blue Back Mid&Far","","","",""}, /*first is over written by header*//*both->RF*/
+      {"Red Front","Red Park","","",""}, /*first is over written by header*//*both->RF*/
+      {"Blue Front","Blue Park","","",""}, /*first is over written by header*//*both->RB*/
+      {"Red Back","Red Cap","","","def"}, /*first is over written by header*//*both->BB*/
+      {"Blue Back","Blue Cap","","",""}, /*first is over written by header*//*both->RF*/
     };
     void execute(){
       std::clamp(row, -1, 3);
@@ -70,13 +70,13 @@ namespace auton{
       // }
       if(row==0){
         if(col==0)      {routines::RedFront();}
-        else if(col==1) {}
+        else if(col==1) {routines::RedFrontMidAndPark();}
         else if(col==2) {}
         else if(col==3) {}
         else if(col==4) {}
       }
       else if(row==1){
-        if(col==0)      {}
+        if(col==0)      {routines::BlueFront();}
         else if(col==1) {}
         else if(col==2) {}
         else if(col==3) {}
