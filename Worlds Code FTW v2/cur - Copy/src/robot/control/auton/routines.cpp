@@ -106,21 +106,21 @@ namespace auton{
       Intake::enable();
       pros::delay(400);
       Intake::disable();
-      Drive::drive(-2);
+      Drive::drive(-1);
       Drive::driveS(1,100,1,1);
 
-      Drive::turnEnc(-60,100,1);
+      Drive::turnEnc(-62,100,1);
       pros::delay(3000);
       Puncher::fire();
-      pros::delay(500);
+      pros::delay(700);
       Intake::enable();
       Drive::drive(-9);
     //  Drive::driveS(-3);
       pros::delay(1500);
-      //Drive::turnEnc(1.25, 100, 1);
+      Drive::turnEnc(2, 100, 1);
       Puncher::fire();
       pros::delay(800);
-      Drive::turnEnc(-140,100,1);
+      Drive::turnEnc(-120,100,1);
     }
     void BlueBackMidAndFar(){
    
@@ -177,7 +177,7 @@ Drive::turnEnc(180, 100, 1);
       Lift::set_target(300);
       pros::delay(200);
       Drive::drive(6);
-      Drive::turnEnc(-29.1,100,100);
+      Drive::turnEnc(-29.4,100,100);
       Drive::drive(11);
       Drive::driveRecon(100, 300);
       //Drive::drive(-.5);
@@ -185,8 +185,9 @@ Drive::turnEnc(180, 100, 1);
       pros::delay(700);
       Drive::drive(-10);
       Lift::set_target(0);
-      Drive::turnEnc(110,100,1);
+      Drive::turnEnc(127,100,1);
       pros::delay(300);
+      Drive::drive(3);
       Puncher::fire();
       
     }
