@@ -5,6 +5,8 @@ namespace auton{
     void testing();
     void  RedFront();
     void BlueFront();
+    void FrontRedPark();
+    void FrontBluePark();
     void RedBackMidAndFar();
     void BlueBackMidAndFar();
     void RedFrontMidAndPark();

@@ -71,7 +71,7 @@ namespace auton{
       if(row==0){
         if(col==0)      {routines::RedFront();}
         else if(col==1) {routines::RedFrontMidAndPark();}
-        else if(col==2) {}
+        else if(col==2) {routines::FrontRedPark();}
         else if(col==3) {}
         else if(col==4) {}
       }
@@ -87,7 +87,7 @@ namespace auton{
         else if(col==1) {routines::RedBackStackAndPark();}
         else if(col==2) {}
         else if(col==3) {}
-        else if(col==4) {routines::RedBackMidAndFar();} //workspace
+        else if(col==4) {routines::BlueBackStackAndPark();} //workspace
       }
       else if(row==3){
         if(col==0)      {routines::BlueBackMidAndFar();}
@@ -101,8 +101,8 @@ namespace auton{
       StyleInit();
 
       LabelInit(row0,&style_red, 0,5,45);
-      LabelInit(row1,&style_red, 1,5,60);
-      LabelInit(row2,&style_blue,2,5,165);
+      LabelInit(row1,&style_blue, 1,5,60);
+      LabelInit(row2,&style_red,2,5,165);
       LabelInit(row3,&style_blue,3,5,180);
 
       BtnInit(Btn1_1,&style_red,0,0);
@@ -111,16 +111,16 @@ namespace auton{
       BtnInit(Btn1_4,&style_red,0,3);
       BtnInit(Btn1_5,&style_config,0,4);
 
-      BtnInit(Btn2_1,&style_red,1,0);
-      BtnInit(Btn2_2,&style_red,1,1);
-      BtnInit(Btn2_3,&style_red,1,2);
-      BtnInit(Btn2_4,&style_red,1,3);
+      BtnInit(Btn2_1,&style_blue,1,0);
+      BtnInit(Btn2_2,&style_blue,1,1);
+      BtnInit(Btn2_3,&style_blue,1,2);
+      BtnInit(Btn2_4,&style_blue,1,3);
       BtnInit(Btn2_5,&style_config,1,4);
 
-      BtnInit(Btn3_1,&style_blue,2,0);
-      BtnInit(Btn3_2,&style_blue,2,1);
-      BtnInit(Btn3_3,&style_blue,2,2);
-      BtnInit(Btn3_4,&style_blue,2,3);
+      BtnInit(Btn3_1,&style_red,2,0);
+      BtnInit(Btn3_2,&style_red,2,1);
+      BtnInit(Btn3_3,&style_red,2,2);
+      BtnInit(Btn3_4,&style_red,2,3);
       BtnInit(Btn3_5,&style_config,2,4);
 
       BtnInit(Btn4_1,&style_blue,3,0);
