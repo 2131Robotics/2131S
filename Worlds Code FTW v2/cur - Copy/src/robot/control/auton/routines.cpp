@@ -40,10 +40,10 @@ namespace auton{
       pros::delay(150);
       
       Drive::drive(9);
-      Drive::turnEnc(-3,200,1);
+      Drive::turnEnc(-2,200,1);
       Drive::drive(6);
       Drive::drive(-9);
-      Drive::turnEnc(66,200,1);
+      Drive::turnEnc(65,200,1);
       Drive::drive(7);
       Puncher::fire();
       
@@ -89,16 +89,16 @@ namespace auton{
     void FrontRedPark(){
       Intake::enable();
       Drive::drive(19);
-      Drive::drive(-16);
-      Drive::turnEnc(-90,100,1);
-      Drive::drive(1.5);
+      Drive::drive(-7);
+      Drive::turnEnc(-55,100,1);
+      Drive::drive(5);
       Puncher::fire(); //shooting
-      pros::delay(500);
-      Intake::disable();
-      Drive::drive(-9);
-      Drive::turnEnc(90,100,1);
+      pros::delay(800);
+         
     }
-    void FrontBluePark()  {}
+    void FrontBluePark()  {
+
+    }
     void RedBackMidAndFar(){
 
       //intake::set_VSetting(40);
@@ -109,7 +109,7 @@ namespace auton{
       Drive::drive(-1);
       Drive::driveS(1,100,1,1);
 
-      Drive::turnEnc(-62,100,1);
+      Drive::turnEnc(-63,100,1);
       pros::delay(3000);
       Puncher::fire();
       pros::delay(700);
@@ -177,7 +177,7 @@ Drive::turnEnc(180, 100, 1);
       Lift::set_target(300);
       pros::delay(200);
       Drive::drive(6);
-      Drive::turnEnc(-29.4,100,100);
+      Drive::turnEnc(-29.9,100,100);
       Drive::drive(11);
       Drive::driveRecon(100, 300);
       //Drive::drive(-.5);
@@ -185,9 +185,9 @@ Drive::turnEnc(180, 100, 1);
       pros::delay(700);
       Drive::drive(-10);
       Lift::set_target(0);
-      Drive::turnEnc(127,100,1);
+      Drive::turnEnc(125,100,1);
       pros::delay(300);
-      Drive::drive(3);
+      Drive::drive(6);
       Puncher::fire();
       
     }
@@ -215,6 +215,30 @@ Drive::turnEnc(180, 100, 1);
 
     }
     void BlueBackUltimate(){
+
+    }
+    void RedFrontDelay()
+    {
+      Intake::enable();
+      Drive::drive(19);
+      Drive::drive(-15);
+      Flipper::set_target(flipper::limitMin);
+      Drive::turnEnc(-45,100,1);
+      Drive::drive(6);
+      Flipper::set_target(-100);
+      Drive::drive(-6);
+      Drive::turnEnc(-45,100,1);
+      Drive::driveS(-1);
+      pros::delay(2000);
+      Puncher::fire();
+      pros::delay(700);
+      Drive::drive(10);
+      Drive::turnEnc(-3,100,1);
+      Drive::drive(5);
+      
+    }
+    void BlueFrontDelay()
+    {
 
     }
   }

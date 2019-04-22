@@ -53,8 +53,8 @@ namespace auton{
     std::string ConHeaders[4]={"RF","BF","RB","BB"};
     std::string RowHeaders[4]={"F","F","B","B"};
     std::string routines[4][5]={
-      {"Red Front","Red Park","","",""}, /*first is over written by header*//*both->RF*/
-      {"Blue Front","Blue Park","","",""}, /*first is over written by header*//*both->RB*/
+      {"Red Front","Red Park","delay red","MidFlags Red",""}, /*first is over written by header*//*both->RF*/
+      {"Blue Front","Blue Park","delay blue","MidFlags Blue",""}, /*first is over written by header*//*both->RB*/
       {"Red Back","Red Cap","","","def"}, /*first is over written by header*//*both->BB*/
       {"Blue Back","Blue Cap","","",""}, /*first is over written by header*//*both->RF*/
     };
@@ -71,15 +71,15 @@ namespace auton{
       if(row==0){
         if(col==0)      {routines::RedFront();}
         else if(col==1) {routines::RedFrontMidAndPark();}
-        else if(col==2) {routines::FrontRedPark();}
-        else if(col==3) {}
+        else if(col==2) {routines::RedFrontDelay();}
+        else if(col==3) {routines::FrontRedPark();}
         else if(col==4) {}
       }
       else if(row==1){
         if(col==0)      {routines::BlueFront();}
-        else if(col==1) {}
-        else if(col==2) {}
-        else if(col==3) {}
+        else if(col==1) {routines::BlueFrontMidAndPark();}
+        else if(col==2) {routines::BlueFrontDelay();}
+        else if(col==3) {routines::FrontBluePark();}
         else if(col==4) {}
       }
       else if(row==2){
@@ -87,7 +87,7 @@ namespace auton{
         else if(col==1) {routines::RedBackStackAndPark();}
         else if(col==2) {}
         else if(col==3) {}
-        else if(col==4) {routines::RedBackStackAndPark();} //workspace
+        else if(col==4) {routines::FrontRedPark();} //workspace
       }
       else if(row==3){
         if(col==0)      {routines::BlueBackMidAndFar();}

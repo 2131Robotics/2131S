@@ -15,6 +15,8 @@ namespace auton{
     void BlueBackStackAndPark();
     void RedBackUtlimate();
     void BlueBackUltimate();
+    void RedFrontDelay();
+    void BlueFrontDelay();
   }
 }
 #endif /* end of include guard: ROUTINES_HPP */
