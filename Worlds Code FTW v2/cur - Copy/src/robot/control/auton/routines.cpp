@@ -31,69 +31,60 @@ namespace auton{
     void RedFront()
     {
       Intake::enable();
-      Drive::drive(19);
+      Drive::drive(18.5);
       Drive::drive(-15);
-      Drive::turnEnc(-89,150,1);
+      Drive::turnEnc(-91,150,1);
+      Flipper::set_target(-100);
       
       //Drive::drive(1.5);
       Puncher::fire(); //shooting
       pros::delay(150);
       
       Drive::drive(9);
-      Drive::turnEnc(-2,200,1);
-      Drive::drive(6);
-      Drive::drive(-9);
-      Drive::turnEnc(65,200,1);
+      Drive::turnEnc(-1,200,1);
       Drive::drive(7);
+      Drive::drive(-7);
+      Drive::turnEnc(64,200,1);
+      Drive::drive(9);
+      //Drive::turnEnc(2,150,1);
       Puncher::fire();
       
           }
     void BlueFront(){
       Intake::enable();
-      Drive::drive(19);
+      Drive::drive(18);
       Drive::drive(-15);
-      Drive::turnEnc(87,150,1);
-      
-      Drive::drive(1.5);
+      pros::delay(300);
+      Drive::turnEnc(83,150,1);
+      pros::delay(100);
+     // Drive::drive(1.5);
       Puncher::fire(); //shooting
-      pros::delay(150);
+      pros::delay(400);
       
-      Drive::drive(10);
-      Drive::turnEnc(5,150,1);
-      Drive::drive(10);
+      Drive::drive(12);
+      Drive::turnEnc(4,150,1);
+      Drive::drive(12);
 
       //pros::delay(400); //pole
-      Drive::drive(-9);
-      Drive::turnEnc(-66,150,1);
-      Drive::drive(4);
+      Drive::drive(-7);
+      Drive::turnEnc(-75,150,1);
+      Drive::drive(3 );
       Puncher::fire();
-     /* Drive::drive(1.5);
-      Flipper::set_target(-500);
-      pros::delay(200);
-      Drive::drive(-2);
-      Flipper::set_target(-100);
-      Drive::drive(2);
-      Drive::turnEnc(55,100,1);
-      Puncher::fire();*/
-     /* Drive::drive(-1.5);
-      Drive::turnEnc(-112,100,1);      
-      Drive::drive(4);
-      Flipper::set_target(-450);
-      pros::delay(450);
-      Drive::drive(-5);
-      Drive::turnEnc(60,100,1);
-      Drive::drive(6);
-      Puncher::fire();*/
-      
+          
     }
     void FrontRedPark(){
       Intake::enable();
-      Drive::drive(19);
+      Drive::drive(18.5);
       Drive::drive(-7);
       Drive::turnEnc(-55,100,1);
       Drive::drive(5);
       Puncher::fire(); //shooting
       pros::delay(800);
+      Drive::turnEnc(55,150,1);
+      Drive::drive(-15);
+      Drive::drive(1);
+      Drive::turnEnc(-95,150,1);
+      Drive::drive(10);
          
     }
     void FrontBluePark()  {
@@ -117,7 +108,7 @@ namespace auton{
       Drive::drive(-9);
     //  Drive::driveS(-3);
       pros::delay(1500);
-      Drive::turnEnc(2, 100, 1);
+      Drive::turnEnc(1, 100, 1);
       Puncher::fire();
       pros::delay(800);
       Drive::turnEnc(-120,100,1);
@@ -132,15 +123,15 @@ namespace auton{
       Drive::drive(-2);
       Drive::driveS(-1,100,1,1);
 
-      Drive::turnEnc(58,100,1);
+      Drive::turnEnc(60,100,1);
       pros::delay(3000);
       Puncher::fire();
       pros::delay(500);
       Intake::enable();
       Drive::drive(-8.5);
-    //  Drive::driveS(-3);
+      Drive::driveS(-2);
       pros::delay(1500);
-      Drive::turnEnc(-2, 100, 1);
+     // Drive::turnEnc(-1, 100, 1);
       Puncher::fire();
       pros::delay(800);
       Drive::turnEnc(130,100,1);
@@ -172,12 +163,12 @@ Drive::turnEnc(180, 100, 1);
     }
     void RedBackStackAndPark(){
       Drive::drive(-5);
-      Drive::turnEnc(30,100,1);
+      Drive::turnEnc(28,100,1);
       Drive::drive(-15);
       Lift::set_target(300);
       pros::delay(200);
       Drive::drive(6);
-      Drive::turnEnc(-29.9,100,100);
+      Drive::turnEnc(-31,100,100);
       Drive::drive(11);
       Drive::driveRecon(100, 300);
       //Drive::drive(-.5);
@@ -185,29 +176,31 @@ Drive::turnEnc(180, 100, 1);
       pros::delay(700);
       Drive::drive(-10);
       Lift::set_target(0);
-      Drive::turnEnc(125,100,1);
-      pros::delay(300);
-      Drive::drive(6);
+      Drive::turnEnc(130,100,1);
+      //pros::delay(300);
+      Drive::drive(-3);
       Puncher::fire();
       
     }
     void BlueBackStackAndPark(){
-      Drive::drive(-5);
-      Drive::turnEnc(-30,200,1);
+      Drive::drive(-7);
+      Drive::turnEnc(-35,200,1);
       Drive::drive(-15);
       Lift::set_target(300);
       pros::delay(200);
-      Drive::drive(6);
-      Drive::turnEnc(30,200,100);
-      Drive::drive(11);
+      Drive::drive(4);
+      Drive::turnEnc(34,100,100);
+      Drive::drive(15);//going to pole
+      //pros::delay(1000);
       Drive::driveRecon(200, 150);
       //Drive::drive(-.5);
       Lift::set_target(575);
-      pros::delay(600);
-      Drive::drive(-10);
+      pros::delay(700);
+      Drive::drive(-13);
       Lift::set_target(0);
-      Drive::turnEnc(-145,200,1);
-      pros::delay(300);
+      Drive::turnEnc(-131,200,1);
+      //pros::delay(300);
+      Drive::drive(-5);
       Puncher::fire();
       
     }
